@@ -1,0 +1,22 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "format": "prettier --write \"{resources,app,config,routes,tests}/**/*.{js,ts,vue,php,blade.php}\"",
+        "format:php": "prettier --write \"{app,config,database,routes,tests}/**/*.php\" --parser php --plugin=@prettier/plugin-php",
+        "format:check": "prettier --check \"{app,config,database,routes,tests}/**/*.php\" --parser php --plugin=@prettier/plugin-php"
+    },
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.24.0",
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "prettier": "^3.7.4",
+        "tailwindcss": "^4.0.0",
+        "vite": "^7.0.7"
+    }
+}
