@@ -45,7 +45,7 @@ COPY public ./public
 RUN npm run build
 
 # ---- Stage 3: Production Image ----
-FROM php:8.2-fpm-alpine AS production
+FROM php:8.4-fpm-alpine AS production
 
 # Install system dependencies
 RUN apk add --no-cache \
