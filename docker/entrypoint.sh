@@ -33,7 +33,7 @@ mkdir -p /var/log/supervisor
 # Update Nginx port from environment variable if set
 if [ -n "$PORT" ]; then
     echo "🔧 Configuring Nginx to listen on port $PORT..."
-    sed -i "s/listen 10000/listen $PORT/" /etc/nginx/nginx.conf
+    sed -i "s/listen 8080/listen $PORT/" /etc/nginx/nginx.conf
 fi
 
 # Start supervisor (which manages nginx, php-fpm, and queue worker)

@@ -64,14 +64,14 @@ RUN apk add --no-cache \
     icu-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
-        pdo_mysql \
-        pdo_sqlite \
-        gd \
-        zip \
-        bcmath \
-        opcache \
-        intl \
-        mbstring \
+    pdo_mysql \
+    pdo_sqlite \
+    gd \
+    zip \
+    bcmath \
+    opcache \
+    intl \
+    mbstring \
     && rm -rf /var/cache/apk/*
 
 # Configure PHP for production
@@ -109,8 +109,8 @@ RUN touch database/database.sqlite \
     && chown www-data:www-data database/database.sqlite \
     && chmod 664 database/database.sqlite
 
-# Expose port (Render expects apps to listen on $PORT)
-EXPOSE 10000
+# Expose port (Railway sets PORT dynamically)
+EXPOSE ${PORT:-8080}
 
 # Copy and set entrypoint script
 COPY docker/entrypoint.sh /entrypoint.sh
@@ -118,6 +118,6 @@ RUN chmod +x /entrypoint.sh
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-10000}/api/health || exit 1
+    CMD curl -f http://localhost:${PORT:-8080}/api/health || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
