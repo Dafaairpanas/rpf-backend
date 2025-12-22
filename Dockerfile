@@ -1,6 +1,6 @@
 # ============================================
 # Multi-stage Dockerfile for Laravel 11
-# Optimized for Render.com deployment
+# Optimized for Railway deployment
 # ============================================
 
 # ---- Stage 1: Composer Dependencies ----
@@ -103,6 +103,7 @@ RUN mkdir -p storage/framework/{sessions,views,cache} \
     && mkdir -p storage/logs \
     && mkdir -p bootstrap/cache \
     && mkdir -p database \
+    && mkdir -p /var/log/supervisor \
     && chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
 
@@ -111,15 +112,9 @@ RUN touch database/database.sqlite \
     && chown www-data:www-data database/database.sqlite \
     && chmod 664 database/database.sqlite
 
-# Expose port (Railway sets PORT dynamically)
-EXPOSE ${PORT:-8080}
-
 # Copy and set entrypoint script
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-8080}/api/health || exit 1
-
-ENTRYPOINT ["/entrypoint.sh"]
+# Default command
+CMD ["/entrypoint.sh"]
