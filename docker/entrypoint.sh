@@ -46,6 +46,12 @@ php artisan view:cache || echo "⚠️ View cache failed, continuing..."
 echo "🗄️ Running database migrations..."
 php artisan migrate --force || echo "⚠️ Migration failed, continuing..."
 
+# Run seeder if RUN_SEED is set to true
+if [ "$RUN_SEED" = "true" ]; then
+    echo "🌱 Running database seeder..."
+    php artisan db:seed --force || echo "⚠️ Seeding failed, continuing..."
+fi
+
 # Create storage symlink if not exists
 if [ ! -L public/storage ]; then
     echo "🔗 Creating storage symlink..."
