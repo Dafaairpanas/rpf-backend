@@ -1,0 +1,49 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Dependencies (will be installed in Docker)
+/vendor
+/node_modules
+
+# IDE & Editor
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+/tests
+phpunit.xml
+.phpunit.result.cache
+
+# Development files
+.env
+.env.local
+.env.*.local
+docker-compose*.yml
+
+# Logs
+storage/logs/*
+!storage/logs/.gitignore
+
+# Cache
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/views/.gitignore
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Misc
+Thumbs.db
+.editorconfig
+.prettierrc

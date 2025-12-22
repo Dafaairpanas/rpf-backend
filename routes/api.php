@@ -16,7 +16,26 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TeakImageController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\UserController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
+// Health check endpoint for Render.com (outside v1 prefix)
+Route::get('/health', function () {
+    try {
+        DB::connection()->getPdo();
+        return response()->json([
+            'status' => 'healthy',
+            'database' => 'connected',
+            'timestamp' => now()->toISOString(),
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'unhealthy',
+            'database' => 'disconnected',
+            'error' => $e->getMessage(),
+        ], 503);
+    }
+});
 
 Route::prefix('v1')->middleware('throttle:api')->group(function () {
     // Endpoint Publik
