@@ -18,7 +18,7 @@ class RoleController extends Controller
         try {
             $perPage = (int) $request->get('per_page', 20);
 
-            $query = Role::query()->orderBy('name', 'asc');
+            $query = Role::query()->withCount('users')->orderBy('name', 'asc');
 
             // Search by name
             if ($request->filled('q')) {
@@ -68,7 +68,7 @@ class RoleController extends Controller
     public function show($id)
     {
         try {
-            $role = Role::findOrFail($id);
+            $role = Role::withCount('users')->findOrFail($id);
             return ApiResponse::success($role);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return ApiResponse::notFound('Role tidak ditemukan');

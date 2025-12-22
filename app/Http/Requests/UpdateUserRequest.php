@@ -21,10 +21,13 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules(): array
     {
-        $userId = $this->route('user') ? $this->route('user')->id : null;
-        // Jika route model binding belum resolved, coba ambil parameter ID langsung
-        if (! $userId) {
-            $userId = $this->route('user');
+        // Handle both route model binding (User object) and plain ID (string)
+        $routeParam = $this->route('user');
+
+        if ($routeParam instanceof \App\Models\User) {
+            $userId = $routeParam->id;
+        } else {
+            $userId = $routeParam;
         }
 
         return [

@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductImageController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TeakImageController;
+use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,11 @@ Route::prefix('v1')->middleware('throttle:api')->group(function () {
         Route::delete('teak-images/{id}/force', [TeakImageController::class, 'forceDestroy']);
         Route::delete('cover-images/{id}', [CoverImageController::class, 'destroy']);
         Route::delete('cover-images/{id}/force', [CoverImageController::class, 'forceDestroy']);
+
+        // Upload endpoints for editor images
+        Route::post('upload/image', [UploadController::class, 'uploadImage']);
+        Route::post('upload/images', [UploadController::class, 'uploadMultiple']);
+        Route::delete('upload/image', [UploadController::class, 'deleteImage']);
     });
 
     Route::get('/ping', function () {
