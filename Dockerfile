@@ -62,10 +62,12 @@ RUN apk add --no-cache \
     sqlite-dev \
     oniguruma-dev \
     icu-dev \
+    postgresql-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
     pdo_mysql \
     pdo_sqlite \
+    pdo_pgsql \
     gd \
     zip \
     bcmath \
