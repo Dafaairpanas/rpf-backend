@@ -9,7 +9,7 @@ return [
         // HAPUS baris '*' (bintang) tadi.
 
         // Masukkan domain Vercel kamu di sini:
-        'https://nama-project-kamu.vercel.app',
+        'https://rpf-jade.vercel.app',
 
         // Atau pastikan ENV 'FRONTEND_URL' di Railway diisi dengan domain Vercel:
         env('FRONTEND_URL', 'http://localhost:3000'),
