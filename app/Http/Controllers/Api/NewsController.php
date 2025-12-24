@@ -8,6 +8,7 @@ use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use App\Models\NewsContent;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -23,13 +24,16 @@ class NewsController extends Controller
         return ApiResponse::success($topNews);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $perPage = (int) $request->get('per_page', 7);
+
         // Load content untuk extract thumbnail, tapi hanya select field yang diperlukan
         return ApiResponse::success(
             News::with(['creator', 'content:id,news_id,content'])
                 ->select(['id', 'title', 'is_top_news', 'create_by', 'created_at', 'updated_at'])
-                ->paginate(20)
+                ->orderBy('created_at', 'desc')
+                ->paginate($perPage)
         );
     }
 

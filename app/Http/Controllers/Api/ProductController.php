@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $perPage = (int) $request->get('per_page', 12);
+        $perPage = (int) $request->get('per_page', 8);
         $limit = $request->get('limit');
 
         $query = Product::query()

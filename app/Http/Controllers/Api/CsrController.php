@@ -9,16 +9,20 @@ use App\Http\Requests\StoreCsrRequest;
 use App\Http\Requests\UpdateCsrRequest;
 use App\Models\Csr;
 use App\Models\CsrContent;
+use Illuminate\Http\Request;
 
 class CsrController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $perPage = (int) $request->get('per_page', 6);
+
         // Load content untuk extract thumbnail, tapi hanya select ID untuk efisiensi
         return ApiResponse::success(
             Csr::with(['creator', 'content:id,csr_id,content'])
                 ->select(['id', 'title', 'create_by', 'created_at', 'updated_at'])
-                ->paginate(20)
+                ->orderBy('created_at', 'desc')
+                ->paginate($perPage)
         );
     }
 
