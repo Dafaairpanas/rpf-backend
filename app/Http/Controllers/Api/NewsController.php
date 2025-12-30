@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse;
+use App\Helpers\HtmlSanitizer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
@@ -51,9 +52,10 @@ class NewsController extends Controller
 
         // Simpan content ke tabel terpisah jika ada
         if (filled($data['content'])) {
+            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
             NewsContent::create([
                 'news_id' => $news->id,
-                'content' => $data['content'],
+                'content' => $sanitizedContent,
             ]);
         }
 
@@ -79,9 +81,11 @@ class NewsController extends Controller
 
         // Update atau create content
         if (isset($data['content'])) {
+            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
+
             $news->content()->updateOrCreate(
                 ['news_id' => $news->id],
-                ['content' => $data['content']]
+                ['content' => $sanitizedContent]
             );
         }
 
