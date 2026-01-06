@@ -21,7 +21,14 @@ class NewContactMessageMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Contact Message from ' . $this->contactMessage->name,
+            from: new \Illuminate\Mail\Mailables\Address(
+                config('mail.from.address'),
+                $this->contactMessage->name . ' (via Website)'
+            ),
+            subject: 'RPF Website - pesan dapit ' . $this->contactMessage->name,
+            replyTo: [
+                new \Illuminate\Mail\Mailables\Address($this->contactMessage->email, $this->contactMessage->name),
+            ],
         );
     }
 

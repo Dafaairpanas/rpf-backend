@@ -15,4 +15,15 @@ class CoverImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getImageUrlAttribute($value): ?string
+    {
+        if (!$value)
+            return null;
+        if (str_starts_with($value, 'http')) {
+            $path = parse_url($value, PHP_URL_PATH);
+            return url($path);
+        }
+        return asset('storage/' . $value);
+    }
 }

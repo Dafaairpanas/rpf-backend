@@ -39,7 +39,9 @@ Route::get('/health', function () {
 
 Route::prefix('v1')->middleware('throttle:api')->group(function () {
     // Endpoint Publik
-    Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'login'])
+        ->middleware('throttle:5,1') // 5 attempts per minute (brute force protection)
+        ->name('login');
     Route::get('products', [ProductController::class, 'index']);
     Route::get('products/{id}', [ProductController::class, 'show']);
     Route::get('csrs', [CsrController::class, 'index']);

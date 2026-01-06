@@ -5,21 +5,23 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Brands;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class BrandsController extends Controller
 {
-    private const CACHE_KEY = 'brands:list';
-    private const CACHE_TTL = 300; // 5 menit
+    // Constants removed as they are now in CacheService
 
     public function index()
     {
-        $brands = Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function () {
-            return Brands::all();
-        });
-
-        return ApiResponse::success($brands);
+        return CacheService::remember(
+            'brands:list',
+            CacheService::TAG_BRANDS,
+            CacheService::TTL_MEDIUM,
+            function () {
+                return Brands::all();
+            }
+        );
     }
 
     // POST - Create brand
@@ -45,7 +47,8 @@ class BrandsController extends Controller
             'image_url' => $imageUrl,
         ]);
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BRANDS);
 
         return ApiResponse::success($brand, 'Brand created successfully', 201);
     }
@@ -84,7 +87,8 @@ class BrandsController extends Controller
             'image_url' => $imageUrl,
         ]);
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BRANDS);
 
         return ApiResponse::success($brand, 'Brand updated successfully');
     }
@@ -99,7 +103,8 @@ class BrandsController extends Controller
 
         $brand->delete();
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BRANDS);
 
         return ApiResponse::success(null, 'Brand deleted successfully');
     }

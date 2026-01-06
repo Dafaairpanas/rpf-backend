@@ -20,6 +20,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \App\Http\Middleware\CheckRole::class,
         ]);
+
+        // Append security middleware to API routes
+        $middleware->api([
+            \App\Http\Middleware\SecurityHeaders::class,
+            \App\Http\Middleware\BlockSuspiciousRequests::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // Handle unauthenticated API requests - return 401 JSON instead of redirect

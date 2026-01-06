@@ -1,0 +1,3741 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel API Documentation",
+        "_postman_id": "9294d151-c4e6-4d4f-af72-6af36d8730a4",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/health",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/health",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/health"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"healthy\",\"database\":\"connected\",\"timestamp\":\"2026-01-05T03:07:46.551689Z\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Login user dan buat token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gbailey@example.net\",\"password\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/products"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"current_page\":1,\"data\":[{\"id\":1,\"name\":\"Teak Dining Chair\",\"description\":\"Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Teak Wood\",\"is_featured\":true,\"master_category_id\":1,\"dimension_id\":1,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":1,\"width\":\"40.00\",\"height\":\"80.00\",\"depth\":\"40.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":3,\"name\":\"Classic Bookshelf\",\"description\":\"Premium quality Classic Bookshelf crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Mahogany Wood\",\"is_featured\":true,\"master_category_id\":1,\"dimension_id\":3,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":3,\"width\":\"120.00\",\"height\":\"75.00\",\"depth\":\"80.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":4,\"name\":\"Minimalist Office Desk\",\"description\":\"Premium quality Minimalist Office Desk crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Pine Wood\",\"is_featured\":true,\"master_category_id\":1,\"dimension_id\":4,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":4,\"width\":\"80.00\",\"height\":\"45.00\",\"depth\":\"50.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":5,\"name\":\"Elegant TV Console\",\"description\":\"Premium quality Elegant TV Console crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Walnut Wood\",\"is_featured\":true,\"master_category_id\":1,\"dimension_id\":5,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":5,\"width\":\"200.00\",\"height\":\"90.00\",\"depth\":\"100.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":6,\"name\":\"Comfortable Armchair\",\"description\":\"Premium quality Comfortable Armchair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Teak Wood\",\"is_featured\":false,\"master_category_id\":1,\"dimension_id\":1,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":1,\"width\":\"40.00\",\"height\":\"80.00\",\"depth\":\"40.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":7,\"name\":\"Wooden Side Table\",\"description\":\"Premium quality Wooden Side Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Oak Wood\",\"is_featured\":false,\"master_category_id\":1,\"dimension_id\":2,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":2,\"width\":\"60.00\",\"height\":\"75.00\",\"depth\":\"60.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":8,\"name\":\"Premium Wardrobe\",\"description\":\"Premium quality Premium Wardrobe crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Mahogany Wood\",\"is_featured\":false,\"master_category_id\":1,\"dimension_id\":3,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":3,\"width\":\"120.00\",\"height\":\"75.00\",\"depth\":\"80.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[],\"product_images\":[],\"teak_images\":[]},{\"id\":9,\"name\":\"Sleek Console Table\",\"description\":\"Premium quality Sleek Console Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Pine Wood\",\"is_featured\":false,\"master_category_id\":1,\"dimension_id\":4,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"master_category\":{\"id\":1,\"name\":\"Indoor\"},\"dimension\":{\"id\":4,\"width\":\"80.00\",\"height\":\"45.00\",\"depth\":\"50.00\"},\"creator\":{\"id\":1,\"name\":\"Administrator\",\"email\":\"admin@example.com\"},\"cover_images\":[{\"id\":1,\"product_id\":9,\"image_url\":\"\\\/storage\\\/products\\\/9\\\/cover\\\/Qcg1zM6HPq1PTQBP2OjJwmSnJLGKr3Lb2fGiBygk.jpg\"}],\"product_images\":[{\"id\":3,\"product_id\":9,\"image_url\":\"\\\/storage\\\/products\\\/9\\\/product\\\/6KpUOea44y0Wb8MX8y2PlTPgI1LKIK1JoscgaaIv.jpg\",\"alt\":null,\"order\":0}],\"teak_images\":[{\"id\":1,\"product_id\":9,\"image_url\":\"\\\/storage\\\/products\\\/9\\\/teak\\\/VkoHE3oFQ41Y2f6zdRf38VfypmlR74gb5Ybk9vvg.jpg\"}]}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=1\",\"from\":1,\"last_page\":7,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=7\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=5\",\"label\":\"5\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=6\",\"label\":\"6\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=7\",\"label\":\"7\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/products\",\"per_page\":8,\"prev_page_url\":null,\"to\":8,\"total\":50}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/products\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/products\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"name\":\"Teak Dining Chair\",\"description\":\"Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.\",\"material\":\"Teak Wood\",\"master_category_id\":1,\"dimension_id\":1,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null,\"is_featured\":true,\"product_images\":[],\"teak_images\":[],\"cover_images\":[],\"master_category\":{\"id\":1,\"name\":\"Indoor\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"dimension\":{\"id\":1,\"width\":\"40.00\",\"height\":\"80.00\",\"depth\":\"40.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/csrs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrs"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"current_page\":1,\"data\":[{\"id\":2,\"title\":\"Local Artisan Empowerment\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1452860606245-08befc0ff44b?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":2,\"csr_id\":2,\"content\":\"<h2>Supporting Local Craftsmen<\\\/h2><p>We work directly with local artisans, providing them with fair wages and skill development opportunities. Our program has benefited over 500 craftsmen families.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1452860606245-08befc0ff44b?w=800\\\" alt=\\\"Artisan work\\\"><p>Each piece of furniture carries the legacy of traditional craftsmanship passed down through generations.<\\\/p>\"}},{\"id\":3,\"title\":\"Clean Water Project\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1538300342682-cf57afb97285?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":3,\"csr_id\":3,\"content\":\"<h2>Access to Clean Water<\\\/h2><p>We have installed water purification systems in 20 villages near our manufacturing facilities. Over 5,000 people now have access to clean drinking water.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1538300342682-cf57afb97285?w=800\\\" alt=\\\"Clean water\\\"><p>This project reflects our commitment to community well-being beyond just business operations.<\\\/p>\"}},{\"id\":4,\"title\":\"Education Scholarship Fund\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1503676260728-1c00da094a0b?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":4,\"csr_id\":4,\"content\":\"<h2>Investing in Future Generations<\\\/h2><p>Our scholarship program supports children of local craftsmen to pursue higher education. Since 2020, we have funded 150 scholarships.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1503676260728-1c00da094a0b?w=800\\\" alt=\\\"Education\\\"><p>Education is the foundation for sustainable community development.<\\\/p>\"}},{\"id\":5,\"title\":\"Sustainable Forestry Partnership\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1448375240586-882707db888b?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":5,\"csr_id\":5,\"content\":\"<h2>Responsible Wood Sourcing<\\\/h2><p>All our teak wood comes from certified sustainable forests. We partner with FSC-certified suppliers to ensure responsible forestry practices.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1448375240586-882707db888b?w=800\\\" alt=\\\"Forest\\\"><p>Sustainability is not just a choice, it is our responsibility for future generations.<\\\/p>\"}},{\"id\":6,\"title\":\"Women Empowerment Workshop\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1573497019940-1c28c88b4f3e?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":6,\"csr_id\":6,\"content\":\"<h2>Empowering Women Artisans<\\\/h2><p>Our dedicated women empowerment program provides training in furniture finishing and design. Over 100 women have joined our workforce through this initiative.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1573497019940-1c28c88b4f3e?w=800\\\" alt=\\\"Women empowerment\\\"><p>Gender equality in the workplace creates stronger communities.<\\\/p>\"}},{\"id\":1,\"title\":\"Tree Planting Initiative 2024\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1542601906990-b4d3fb778b09?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":1,\"csr_id\":1,\"content\":\"<h2>Reforestation Program<\\\/h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1542601906990-b4d3fb778b09?w=800\\\" alt=\\\"Tree planting\\\"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.<\\\/p>\"}}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=1\",\"from\":1,\"last_page\":3,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=3\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/csrs\",\"per_page\":6,\"prev_page_url\":null,\"to\":6,\"total\":15}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/csrs\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the csr."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"title\":\"Tree Planting Initiative 2024\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null,\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1542601906990-b4d3fb778b09?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":1,\"csr_id\":1,\"content\":\"<h2>Reforestation Program<\\\/h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1542601906990-b4d3fb778b09?w=800\\\" alt=\\\"Tree planting\\\"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.<\\\/p>\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/news",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"current_page\":1,\"data\":[{\"id\":2,\"title\":\"Company Celebrates 15 Years of Excellence\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1556761175-b413da4baf72?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":2,\"news_id\":2,\"content\":\"<h2>A Milestone Anniversary<\\\/h2><p>This year marks our 15th anniversary in the furniture industry. From a small workshop to an international brand, our journey has been remarkable.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1556761175-b413da4baf72?w=800\\\" alt=\\\"Celebration\\\"><p>We extend our heartfelt thanks to our customers, partners, and the dedicated team who made this possible.<\\\/p>\"}},{\"id\":3,\"title\":\"Expansion to European Market\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1519389950473-47ba0277781c?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":3,\"news_id\":3,\"content\":\"<h2>New Markets, New Opportunities<\\\/h2><p>We are excited to announce our expansion into the European market. Our showrooms will soon be available in Germany, France, and the Netherlands.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1519389950473-47ba0277781c?w=800\\\" alt=\\\"Europe expansion\\\"><p>This expansion brings our authentic Indonesian craftsmanship closer to European customers who appreciate quality and sustainability.<\\\/p>\"}},{\"id\":4,\"title\":\"Award-Winning Design Recognition\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1506439773649-6e0eb8cfb237?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":4,\"news_id\":4,\"content\":\"<h2>International Design Award<\\\/h2><p>Our Modern Heritage Chair has won the prestigious International Furniture Design Award 2024. This recognition highlights our commitment to innovative design.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1506439773649-6e0eb8cfb237?w=800\\\" alt=\\\"Award\\\"><p>We are honored to receive this award and will continue pushing the boundaries of furniture design.<\\\/p>\"}},{\"id\":5,\"title\":\"Sustainable Manufacturing Certification\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1448375240586-882707db888b?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":5,\"news_id\":5,\"content\":\"<h2>FSC Certification Renewed<\\\/h2><p>We are proud to announce the renewal of our FSC (Forest Stewardship Council) certification, reaffirming our commitment to sustainable forestry practices.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1448375240586-882707db888b?w=800\\\" alt=\\\"Forest\\\"><p>Every piece of furniture you purchase supports responsible forest management.<\\\/p>\"}},{\"id\":6,\"title\":\"New Factory Technology Upgrade\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1565793298595-6a879b1d9492?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":6,\"news_id\":6,\"content\":\"<h2>Investing in Precision<\\\/h2><p>Our factory has undergone a significant technology upgrade with state-of-the-art CNC machines that enhance precision while maintaining our handcrafted finish.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1565793298595-6a879b1d9492?w=800\\\" alt=\\\"Factory\\\"><p>Technology and tradition work hand in hand to deliver the best quality products.<\\\/p>\"}},{\"id\":7,\"title\":\"Partnership with Luxury Hotels\",\"is_top_news\":false,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1566073771259-6a8506099945?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":7,\"news_id\":7,\"content\":\"<h2>Furnishing Five-Star Properties<\\\/h2><p>We have secured partnerships with several five-star hotel chains to supply custom furniture for their properties across Asia and the Middle East.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1566073771259-6a8506099945?w=800\\\" alt=\\\"Hotel\\\"><p>Our furniture will grace the lobbies and suites of world-renowned hospitality brands.<\\\/p>\"}},{\"id\":1,\"title\":\"New Premium Collection Launch 2024\",\"is_top_news\":true,\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":1,\"news_id\":1,\"content\":\"<h2>Introducing Our Finest Collection<\\\/h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\\\" alt=\\\"Premium furniture\\\"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.<\\\/p>\"}}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=1\",\"from\":1,\"last_page\":3,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=3\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news?page=2\",\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/news\",\"per_page\":7,\"prev_page_url\":null,\"to\":7,\"total\":20}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get top news untuk banner\/header",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news\/top-news",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news\/top-news"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"title\":\"New Premium Collection Launch 2024\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null,\"is_top_news\":true,\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":1,\"news_id\":1,\"content\":\"<h2>Introducing Our Finest Collection<\\\/h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\\\" alt=\\\"Premium furniture\\\"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.<\\\/p>\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/news\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the news."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"title\":\"New Premium Collection Launch 2024\",\"create_by\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null,\"is_top_news\":true,\"thumbnail_url\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\",\"creator\":{\"id\":1,\"username\":\"admin\",\"name\":\"Administrator\",\"email\":\"admin@example.com\",\"division\":\"IT\",\"role_id\":1,\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},\"content\":{\"id\":1,\"news_id\":1,\"content\":\"<h2>Introducing Our Finest Collection<\\\/h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.<\\\/p><img src=\\\"https:\\\/\\\/images.unsplash.com\\\/photo-1555041469-a586c61ea9bc?w=800\\\" alt=\\\"Premium furniture\\\"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.<\\\/p>\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/brands",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/brands",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/brands"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/brands\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/brands\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/brands\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the brand."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/certifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/certifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/certifications"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/certifications\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/certifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/certifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the certification."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/master-categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/master-categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/master-categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":[{\"id\":1,\"name\":\"Indoor\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},{\"id\":2,\"name\":\"Outdoor\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/master-categories\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/master-categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/master-categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the master category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"name\":\"Indoor\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/dimensions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dimensions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dimensions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":[{\"id\":1,\"width\":\"40.00\",\"height\":\"80.00\",\"depth\":\"40.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},{\"id\":2,\"width\":\"60.00\",\"height\":\"75.00\",\"depth\":\"60.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},{\"id\":3,\"width\":\"120.00\",\"height\":\"75.00\",\"depth\":\"80.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},{\"id\":4,\"width\":\"80.00\",\"height\":\"45.00\",\"depth\":\"50.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null},{\"id\":5,\"width\":\"200.00\",\"height\":\"90.00\",\"depth\":\"100.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/dimensions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dimensions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dimensions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the dimension."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":{\"id\":1,\"width\":\"40.00\",\"height\":\"80.00\",\"depth\":\"40.00\",\"created_at\":\"2025-12-31T05:48:48.000000Z\",\"updated_at\":\"2025-12-31T05:48:48.000000Z\",\"deleted_at\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Public endpoint - get active banners sorted by order",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/banners",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/banners"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"success\":true,\"message\":\"Success\",\"data\":[{\"id\":4,\"title\":\"c\",\"image\":\"http:\\\/\\\/localhost\\\/storage\\\/banners\\\/v9mn1tEsHj5A10XjevMCkfR4H7anb1oTd7RTXOqJ.png\",\"link\":null,\"order\":1,\"is_active\":true,\"created_at\":\"2025-12-31T06:02:39.000000Z\",\"updated_at\":\"2025-12-31T06:02:47.000000Z\"},{\"id\":3,\"title\":\"b\",\"image\":\"http:\\\/\\\/localhost\\\/storage\\\/banners\\\/SUMZrvFRwnXMczawo3vDQPuIVckeY99hlPq7aHq3.png\",\"link\":null,\"order\":2,\"is_active\":true,\"created_at\":\"2025-12-31T06:02:29.000000Z\",\"updated_at\":\"2025-12-31T06:03:15.000000Z\"},{\"id\":2,\"title\":\"a\",\"image\":\"http:\\\/\\\/localhost\\\/storage\\\/banners\\\/ahvHlNiCvt5KT9JJTw4ooaeLnKWF13gqg2N4Mwq6.png\",\"link\":null,\"order\":3,\"is_active\":true,\"created_at\":\"2025-12-31T06:02:21.000000Z\",\"updated_at\":\"2025-12-31T06:02:57.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Public endpoint - submit contact form\nRate limited via route middleware",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/contact",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/contact"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"email\":\"zbailey@example.net\",\"phone\":\"iyvdljnikhwaykcm\",\"message\":\"y\",\"website\":\"u\",\"fax\":\"w\",\"_token_time\":16}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout user (hapus token)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Ambil data user yang sedang login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List all roles with pagination",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new role",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show single role",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update existing role",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete role",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"b\",\"name\":\"n\",\"email\":\"ashly64@example.com\",\"password\":\"pBNvYg\",\"division\":\"h\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/v1\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"b\",\"name\":\"n\",\"email\":\"ashly64@example.com\",\"password\":\"pBNvYg\",\"division\":\"h\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/users\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Admin - get message statistics for dashboard charts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/contacts\/stats",
+                            "query": [
+                                {
+                                    "key": "period",
+                                    "value": "architecto",
+                                    "description": "Filter by period: daily, weekly, monthly. Default: daily",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "start_date",
+                                    "value": "architecto",
+                                    "description": "date Start date (YYYY-MM-DD). Default: 30 days ago",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "architecto",
+                                    "description": "date End date (YYYY-MM-DD). Default: today",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/contacts\/stats?period=architecto&start_date=architecto&end_date=architecto"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"period\":\"monthly\",\"start_date\":\"2026-01-05\",\"end_date\":\"2052-01-29\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Admin - list all contact messages with filtering",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/contacts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/contacts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Admin - show single contact message",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/contacts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/contacts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the contact."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Admin - update contact message status",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/contacts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/contacts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the contact."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"status\":\"new\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Admin - delete contact message",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/contacts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/contacts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "architecto",
+                                    "description": "The ID of the contact."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Admin - get all banners with pagination",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/banners",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/banners"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Admin - store new banner",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/banners",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/banners"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "link",
+                                    "value": "n",
+                                    "type": "text",
+                                    "description": "Must be a valid URL. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "84",
+                                    "type": "text",
+                                    "description": "Must be at least 0."
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Admin - show single banner",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/banners\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/banners\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the banner."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"success\":false,\"message\":\"Unauthenticated. Please login first.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Admin - update banner",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/banners\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/banners\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the banner."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "link",
+                                    "value": "n",
+                                    "type": "text",
+                                    "description": "Must be a valid URL. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "84",
+                                    "type": "text",
+                                    "description": "Must be at least 0."
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Admin - delete banner",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/banners\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/banners\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the banner."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/master-categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/master-categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/master-categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/master-categories\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/master-categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/master-categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the master category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/master-categories\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/master-categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/master-categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the master category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/dimensions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dimensions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dimensions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"width\":4326.41688,\"height\":4326.41688,\"depth\":4326.41688}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/dimensions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dimensions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dimensions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the dimension."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"width\":4326.41688,\"height\":4326.41688,\"depth\":4326.41688}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/dimensions\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/dimensions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/dimensions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the dimension."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/products"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"description\":\"Et animi quos velit et fugiat.\",\"material\":\"d\",\"product_images\":[\"l\"],\"teak_images\":[\"j\"],\"cover_images\":[\"n\"]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/products\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/products\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"description\":\"Et animi quos velit et fugiat.\",\"material\":\"d\",\"product_images\":[\"l\"],\"teak_images\":[\"j\"],\"cover_images\":[\"n\"],\"product_images_delete\":[16],\"teak_images_delete\":[16],\"cover_images_delete\":[16]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/products\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/products\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/products\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/csrs",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrs",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"content\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/csrs\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the csr."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"content\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/csrs\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/csrs\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/csrs\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the csr."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/news",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"content\":\"architecto\",\"is_top_news\":false}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/news\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the news."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"content\":\"architecto\",\"is_top_news\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/news\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/news\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/news\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the news."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/certifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/certifications",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/certifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "image_url",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/certifications\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/certifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/certifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the certification."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "image_url",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/certifications\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/certifications\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/certifications\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the certification."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/brands",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/brands",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/brands"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "image_url",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/v1\/brands\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/brands\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/brands\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the brand."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "Must not be greater than 100 characters."
+                                },
+                                {
+                                    "key": "image_url",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/brands\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/brands\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/brands\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "16",
+                                    "description": "The ID of the brand."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/product-images\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/product-images\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/product-images\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the product image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/product-images\/{id}\/force",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/product-images\/:id\/force",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/product-images\/:id\/force",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the product image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/teak-images\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/teak-images\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/teak-images\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the teak image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/teak-images\/{id}\/force",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/teak-images\/:id\/force",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/teak-images\/:id\/force",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the teak image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/cover-images\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/cover-images\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/cover-images\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the cover image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/v1\/cover-images\/{id}\/force",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/cover-images\/:id\/force",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/cover-images\/:id\/force",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the cover image."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Upload image for editor (News\/CSR content)",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/upload\/image",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/upload\/image"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "folder",
+                                    "value": "architecto",
+                                    "type": "text",
+                                    "description": "Optional folder path. Default: editor-images"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"success\": true,\n  \"message\": \"Image uploaded successfully\",\n  \"data\": {\n    \"url\": \"https:\/\/example.com\/storage\/editor-images\/abc123.webp\",\n    \"path\": \"editor-images\/abc123.webp\",\n    \"filename\": \"abc123.webp\",\n    \"size\": 102400,\n    \"mime_type\": \"image\/webp\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Upload multiple images at once",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/upload\/images",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/upload\/images"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "folder",
+                                    "value": "architecto",
+                                    "type": "text",
+                                    "description": "Optional folder path. Default: editor-images"
+                                },
+                                {
+                                    "key": "images[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"success\": true,\n  \"message\": \"3 images uploaded successfully\",\n  \"data\": [\n    { \"url\": \"...\", \"path\": \"...\", \"filename\": \"...\" },\n    { \"url\": \"...\", \"path\": \"...\", \"filename\": \"...\" }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete uploaded image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/upload\/image",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/upload\/image"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"path\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"success\": true,\n  \"message\": \"Image deleted successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/ping",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/ping",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/ping"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-content-type-options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "x-frame-options",
+                                    "value": "DENY"
+                                },
+                                {
+                                    "key": "x-xss-protection",
+                                    "value": "1; mode=block"
+                                },
+                                {
+                                    "key": "referrer-policy",
+                                    "value": "strict-origin-when-cross-origin"
+                                },
+                                {
+                                    "key": "permissions-policy",
+                                    "value": "geolocation=(), microphone=(), camera=()"
+                                },
+                                {
+                                    "key": "content-security-policy",
+                                    "value": "default-src 'none'; frame-ancestors 'none'"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"ok\",\"message\":\"Laravel connected\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

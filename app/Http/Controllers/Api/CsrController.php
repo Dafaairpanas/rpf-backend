@@ -9,6 +9,7 @@ use App\Http\Requests\StoreCsrRequest;
 use App\Http\Requests\UpdateCsrRequest;
 use App\Models\Csr;
 use App\Models\CsrContent;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
 
 class CsrController extends Controller
@@ -17,12 +18,23 @@ class CsrController extends Controller
     {
         $perPage = (int) $request->get('per_page', 6);
 
-        // Load content untuk extract thumbnail, tapi hanya select ID untuk efisiensi
-        return ApiResponse::success(
-            Csr::with(['creator', 'content:id,csr_id,content'])
-                ->select(['id', 'title', 'create_by', 'created_at', 'updated_at'])
-                ->orderBy('created_at', 'desc')
-                ->paginate($perPage)
+        $cacheKey = CacheService::generateKey('csr:index', [
+            'per_page' => $perPage,
+            'page' => $request->get('page', 1),
+        ]);
+
+        return CacheService::remember(
+            $cacheKey,
+            CacheService::TAG_CSR,
+            CacheService::TTL_MEDIUM,
+            function () use ($perPage) {
+                return ApiResponse::success(
+                    Csr::with(['creator', 'content:id,csr_id,content'])
+                        ->select(['id', 'title', 'create_by', 'created_at', 'updated_at'])
+                        ->orderBy('created_at', 'desc')
+                        ->paginate($perPage)
+                );
+            }
         );
     }
 
@@ -46,13 +58,24 @@ class CsrController extends Controller
             ]);
         }
 
+        // Invalidate CSR cache
+        CacheService::invalidate(CacheService::TAG_CSR);
+
         return ApiResponse::success($csr->load(['creator', 'content']), 'Content created successfully', 201);
     }
 
     public function show($id)
     {
-        // Load content untuk detail
-        return ApiResponse::success(Csr::with(['creator', 'content'])->findOrFail($id));
+        $cacheKey = CacheService::generateKey('csr:show', ['id' => $id]);
+
+        return CacheService::remember(
+            $cacheKey,
+            CacheService::TAG_CSR,
+            CacheService::TTL_LONG,
+            function () use ($id) {
+                return ApiResponse::success(Csr::with(['creator', 'content'])->findOrFail($id));
+            }
+        );
     }
 
     public function update(UpdateCsrRequest $request, $id)
@@ -75,6 +98,9 @@ class CsrController extends Controller
             );
         }
 
+        // Invalidate CSR cache
+        CacheService::invalidate(CacheService::TAG_CSR);
+
         return ApiResponse::success($csr->load(['creator', 'content']), 'Content updated successfully');
     }
 
@@ -82,6 +108,9 @@ class CsrController extends Controller
     {
         $csr = Csr::findOrFail($id);
         $csr->delete(); // Cascade delete akan hapus content otomatis
+
+        // Invalidate CSR cache
+        CacheService::invalidate(CacheService::TAG_CSR);
 
         return ApiResponse::success(null, 'Content deleted successfully');
     }

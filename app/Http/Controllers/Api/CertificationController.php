@@ -5,21 +5,23 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Certifications;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class CertificationController extends Controller
 {
-    private const CACHE_KEY = 'certifications:list';
-    private const CACHE_TTL = 300; // 5 menit
+    // Constants removed as they are now in CacheService
 
     public function index()
     {
-        $certifications = Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function () {
-            return Certifications::all();
-        });
-
-        return ApiResponse::success($certifications);
+        return CacheService::remember(
+            'certifications:list',
+            CacheService::TAG_CERTIFICATIONS,
+            CacheService::TTL_MEDIUM,
+            function () {
+                return Certifications::all();
+            }
+        );
     }
 
     // POST - Create certification
@@ -45,7 +47,8 @@ class CertificationController extends Controller
             'image_url' => $imageUrl,
         ]);
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_CERTIFICATIONS);
 
         return ApiResponse::success($certification, 'Certification created successfully', 201);
     }
@@ -84,7 +87,8 @@ class CertificationController extends Controller
             'image_url' => $imageUrl,
         ]);
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_CERTIFICATIONS);
 
         return ApiResponse::success($certification, 'Certification updated successfully');
     }
@@ -99,7 +103,8 @@ class CertificationController extends Controller
 
         $certification->delete();
 
-        Cache::forget(self::CACHE_KEY);
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_CERTIFICATIONS);
 
         return ApiResponse::success(null, 'Certification deleted successfully');
     }

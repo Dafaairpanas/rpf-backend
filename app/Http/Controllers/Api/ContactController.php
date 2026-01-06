@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
+use App\Jobs\SendContactEmailJob;
 use App\Mail\NewContactMessageMail;
 use App\Models\ContactMessage;
 use App\Models\MasterCategory;
@@ -195,10 +196,10 @@ class ContactController extends Controller
             $contact->load('product:id,name');
         }
 
-        // Send email notification immediately (no queue)
+        // Send email notification via Queue (Asynchronous)
         $notificationEmail = config('contact.notification_email');
         if ($notificationEmail) {
-            Mail::to($notificationEmail)->send(new NewContactMessageMail($contact));
+            SendContactEmailJob::dispatch($contact);
         }
 
         return ApiResponse::success(

@@ -8,6 +8,7 @@ use App\Http\Requests\StoreBannerRequest;
 use App\Http\Requests\UpdateBannerRequest;
 use App\Http\Resources\BannerResource;
 use App\Models\Banner;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,11 +19,17 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banners = Banner::active()
-            ->ordered()
-            ->get();
-
-        return ApiResponse::success(BannerResource::collection($banners));
+        return CacheService::remember(
+            'banners:index',
+            CacheService::TAG_BANNERS,
+            CacheService::TTL_SHORT, // 5 menit karena banner mungkin sering berubah
+            function () {
+                $banners = Banner::active()
+                    ->ordered()
+                    ->get();
+                return ApiResponse::success(BannerResource::collection($banners));
+            }
+        );
     }
 
     /**
@@ -32,19 +39,34 @@ class BannerController extends Controller
     {
         $perPage = (int) $request->get('per_page', 20);
 
-        $query = Banner::query()->ordered();
+        // Cache admin index juga agar cepat
+        $cacheKey = CacheService::generateKey('banners:admin', [
+            'per_page' => $perPage,
+            'page' => $request->get('page', 1),
+            'q' => $request->q,
+            'is_active' => $request->get('filter.is_active'),
+        ]);
 
-        // Search by title
-        if ($request->filled('q')) {
-            $query->where('title', 'like', '%' . $request->q . '%');
-        }
+        return CacheService::remember(
+            $cacheKey,
+            CacheService::TAG_BANNERS,
+            CacheService::TTL_SHORT,
+            function () use ($request, $perPage) {
+                $query = Banner::query()->ordered();
 
-        // Filter by active status
-        if ($request->has('filter.is_active')) {
-            $query->where('is_active', $request->boolean('filter.is_active'));
-        }
+                // Search by title
+                if ($request->filled('q')) {
+                    $query->where('title', 'like', '%' . $request->q . '%');
+                }
 
-        return ApiResponse::success(BannerResource::collection($query->paginate($perPage)));
+                // Filter by active status
+                if ($request->has('filter.is_active')) {
+                    $query->where('is_active', $request->boolean('filter.is_active'));
+                }
+
+                return ApiResponse::success(BannerResource::collection($query->paginate($perPage)));
+            }
+        );
     }
 
     /**
@@ -66,6 +88,9 @@ class BannerController extends Controller
 
         unset($data['image']);
         $banner = Banner::create($data);
+
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BANNERS);
 
         return ApiResponse::success(new BannerResource($banner), 'Banner created successfully', 201);
     }
@@ -100,6 +125,9 @@ class BannerController extends Controller
         unset($data['image']);
         $banner->update($data);
 
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BANNERS);
+
         return ApiResponse::success(new BannerResource($banner), 'Banner updated successfully');
     }
 
@@ -116,6 +144,9 @@ class BannerController extends Controller
         }
 
         $banner->delete();
+
+        // Invalidate cache
+        CacheService::invalidate(CacheService::TAG_BANNERS);
 
         return ApiResponse::success(null, 'Banner deleted successfully');
     }

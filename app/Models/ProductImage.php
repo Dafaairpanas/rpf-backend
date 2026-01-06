@@ -23,16 +23,21 @@ class ProductImage extends Model
     /**
      * Get full URL for image
      */
-    public function getFullUrlAttribute(): ?string
+    /**
+     * Get full URL for image
+     */
+    public function getImageUrlAttribute($value): ?string
     {
-        if (!$this->image_url) {
+        if (!$value) {
             return null;
         }
 
-        if (str_starts_with($this->image_url, 'http')) {
-            return $this->image_url;
+        if (str_starts_with($value, 'http')) {
+            // Fix for domain changes (e.g. localhost -> localhost:8000)
+            $path = parse_url($value, PHP_URL_PATH);
+            return url($path);
         }
 
-        return asset('storage/' . $this->image_url);
+        return asset('storage/' . $value);
     }
 }

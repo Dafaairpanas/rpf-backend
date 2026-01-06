@@ -1,0 +1,4390 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+tags:
+  -
+    name: Endpoints
+    description: ''
+paths:
+  /api/health:
+    get:
+      summary: ''
+      operationId: getApiHealth
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: healthy
+                  database: connected
+                  timestamp: '2026-01-05T03:07:46.551689Z'
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+                  database:
+                    type: string
+                    example: connected
+                  timestamp:
+                    type: string
+                    example: '2026-01-05T03:07:46.551689Z'
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/login:
+    post:
+      summary: 'Login user dan buat token'
+      operationId: loginUserDanBuatToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: gbailey@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: architecto
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/products:
+    get:
+      summary: ''
+      operationId: getApiV1Products
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id: 1
+                        name: 'Teak Dining Chair'
+                        description: 'Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Teak Wood'
+                        is_featured: true
+                        master_category_id: 1
+                        dimension_id: 1
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 1
+                          width: '40.00'
+                          height: '80.00'
+                          depth: '40.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 3
+                        name: 'Classic Bookshelf'
+                        description: 'Premium quality Classic Bookshelf crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Mahogany Wood'
+                        is_featured: true
+                        master_category_id: 1
+                        dimension_id: 3
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 3
+                          width: '120.00'
+                          height: '75.00'
+                          depth: '80.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 4
+                        name: 'Minimalist Office Desk'
+                        description: 'Premium quality Minimalist Office Desk crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Pine Wood'
+                        is_featured: true
+                        master_category_id: 1
+                        dimension_id: 4
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 4
+                          width: '80.00'
+                          height: '45.00'
+                          depth: '50.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 5
+                        name: 'Elegant TV Console'
+                        description: 'Premium quality Elegant TV Console crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Walnut Wood'
+                        is_featured: true
+                        master_category_id: 1
+                        dimension_id: 5
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 5
+                          width: '200.00'
+                          height: '90.00'
+                          depth: '100.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 6
+                        name: 'Comfortable Armchair'
+                        description: 'Premium quality Comfortable Armchair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Teak Wood'
+                        is_featured: false
+                        master_category_id: 1
+                        dimension_id: 1
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 1
+                          width: '40.00'
+                          height: '80.00'
+                          depth: '40.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 7
+                        name: 'Wooden Side Table'
+                        description: 'Premium quality Wooden Side Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Oak Wood'
+                        is_featured: false
+                        master_category_id: 1
+                        dimension_id: 2
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 2
+                          width: '60.00'
+                          height: '75.00'
+                          depth: '60.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 8
+                        name: 'Premium Wardrobe'
+                        description: 'Premium quality Premium Wardrobe crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Mahogany Wood'
+                        is_featured: false
+                        master_category_id: 1
+                        dimension_id: 3
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 3
+                          width: '120.00'
+                          height: '75.00'
+                          depth: '80.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images: []
+                        product_images: []
+                        teak_images: []
+                      -
+                        id: 9
+                        name: 'Sleek Console Table'
+                        description: 'Premium quality Sleek Console Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                        material: 'Pine Wood'
+                        is_featured: false
+                        master_category_id: 1
+                        dimension_id: 4
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        master_category:
+                          id: 1
+                          name: Indoor
+                        dimension:
+                          id: 4
+                          width: '80.00'
+                          height: '45.00'
+                          depth: '50.00'
+                        creator:
+                          id: 1
+                          name: Administrator
+                          email: admin@example.com
+                        cover_images:
+                          -
+                            id: 1
+                            product_id: 9
+                            image_url: /storage/products/9/cover/Qcg1zM6HPq1PTQBP2OjJwmSnJLGKr3Lb2fGiBygk.jpg
+                        product_images:
+                          -
+                            id: 3
+                            product_id: 9
+                            image_url: /storage/products/9/product/6KpUOea44y0Wb8MX8y2PlTPgI1LKIK1JoscgaaIv.jpg
+                            alt: null
+                            order: 0
+                        teak_images:
+                          -
+                            id: 1
+                            product_id: 9
+                            image_url: /storage/products/9/teak/VkoHE3oFQ41Y2f6zdRf38VfypmlR74gb5Ybk9vvg.jpg
+                    first_page_url: 'http://localhost/api/v1/products?page=1'
+                    from: 1
+                    last_page: 7
+                    last_page_url: 'http://localhost/api/v1/products?page=7'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/v1/products?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=5'
+                        label: '5'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=6'
+                        label: '6'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=7'
+                        label: '7'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/products?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/v1/products?page=2'
+                    path: 'http://localhost/api/v1/products'
+                    per_page: 8
+                    prev_page_url: null
+                    to: 8
+                    total: 50
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            name: 'Teak Dining Chair'
+                            description: 'Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Teak Wood'
+                            is_featured: true
+                            master_category_id: 1
+                            dimension_id: 1
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 1
+                              width: '40.00'
+                              height: '80.00'
+                              depth: '40.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 3
+                            name: 'Classic Bookshelf'
+                            description: 'Premium quality Classic Bookshelf crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Mahogany Wood'
+                            is_featured: true
+                            master_category_id: 1
+                            dimension_id: 3
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 3
+                              width: '120.00'
+                              height: '75.00'
+                              depth: '80.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 4
+                            name: 'Minimalist Office Desk'
+                            description: 'Premium quality Minimalist Office Desk crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Pine Wood'
+                            is_featured: true
+                            master_category_id: 1
+                            dimension_id: 4
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 4
+                              width: '80.00'
+                              height: '45.00'
+                              depth: '50.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 5
+                            name: 'Elegant TV Console'
+                            description: 'Premium quality Elegant TV Console crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Walnut Wood'
+                            is_featured: true
+                            master_category_id: 1
+                            dimension_id: 5
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 5
+                              width: '200.00'
+                              height: '90.00'
+                              depth: '100.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 6
+                            name: 'Comfortable Armchair'
+                            description: 'Premium quality Comfortable Armchair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Teak Wood'
+                            is_featured: false
+                            master_category_id: 1
+                            dimension_id: 1
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 1
+                              width: '40.00'
+                              height: '80.00'
+                              depth: '40.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 7
+                            name: 'Wooden Side Table'
+                            description: 'Premium quality Wooden Side Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Oak Wood'
+                            is_featured: false
+                            master_category_id: 1
+                            dimension_id: 2
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 2
+                              width: '60.00'
+                              height: '75.00'
+                              depth: '60.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 8
+                            name: 'Premium Wardrobe'
+                            description: 'Premium quality Premium Wardrobe crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Mahogany Wood'
+                            is_featured: false
+                            master_category_id: 1
+                            dimension_id: 3
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 3
+                              width: '120.00'
+                              height: '75.00'
+                              depth: '80.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images: []
+                            product_images: []
+                            teak_images: []
+                          -
+                            id: 9
+                            name: 'Sleek Console Table'
+                            description: 'Premium quality Sleek Console Table crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material: 'Pine Wood'
+                            is_featured: false
+                            master_category_id: 1
+                            dimension_id: 4
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              id: 1
+                              name: Indoor
+                            dimension:
+                              id: 4
+                              width: '80.00'
+                              height: '45.00'
+                              depth: '50.00'
+                            creator:
+                              id: 1
+                              name: Administrator
+                              email: admin@example.com
+                            cover_images:
+                              -
+                                id: 1
+                                product_id: 9
+                                image_url: /storage/products/9/cover/Qcg1zM6HPq1PTQBP2OjJwmSnJLGKr3Lb2fGiBygk.jpg
+                            product_images:
+                              -
+                                id: 3
+                                product_id: 9
+                                image_url: /storage/products/9/product/6KpUOea44y0Wb8MX8y2PlTPgI1LKIK1JoscgaaIv.jpg
+                                alt: null
+                                order: 0
+                            teak_images:
+                              -
+                                id: 1
+                                product_id: 9
+                                image_url: /storage/products/9/teak/VkoHE3oFQ41Y2f6zdRf38VfypmlR74gb5Ybk9vvg.jpg
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'Teak Dining Chair'
+                            description:
+                              type: string
+                              example: 'Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                            material:
+                              type: string
+                              example: 'Teak Wood'
+                            is_featured:
+                              type: boolean
+                              example: true
+                            master_category_id:
+                              type: integer
+                              example: 1
+                            dimension_id:
+                              type: integer
+                              example: 1
+                            create_by:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            master_category:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: Indoor
+                            dimension:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                width:
+                                  type: string
+                                  example: '40.00'
+                                height:
+                                  type: string
+                                  example: '80.00'
+                                depth:
+                                  type: string
+                                  example: '40.00'
+                            creator:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: Administrator
+                                email:
+                                  type: string
+                                  example: admin@example.com
+                            cover_images:
+                              type: array
+                              example: []
+                            product_images:
+                              type: array
+                              example: []
+                            teak_images:
+                              type: array
+                              example: []
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/products?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 7
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/products?page=7'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/v1/products?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=5'
+                            label: '5'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=6'
+                            label: '6'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=7'
+                            label: '7'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/products?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/products?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/products'
+                      per_page:
+                        type: integer
+                        example: 8
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 8
+                      total:
+                        type: integer
+                        example: 50
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Products
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Et animi quos velit et fugiat.'
+                  nullable: true
+                material:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: d
+                  nullable: true
+                master_category_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the master_categories table.'
+                  example: null
+                  nullable: true
+                dimension_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the dimensions table.'
+                  example: null
+                  nullable: true
+                product_images:
+                  type: array
+                  description: 'Must not be greater than 10120 characters.'
+                  example:
+                    - l
+                  items:
+                    type: string
+                teak_images:
+                  type: array
+                  description: 'Must not be greater than 10120 characters.'
+                  example:
+                    - j
+                  items:
+                    type: string
+                cover_images:
+                  type: array
+                  description: 'Must not be greater than 10120 characters.'
+                  example:
+                    - 'n'
+                  items:
+                    type: string
+              required:
+                - name
+      security: []
+  '/api/v1/products/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1ProductsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    name: 'Teak Dining Chair'
+                    description: 'Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                    material: 'Teak Wood'
+                    master_category_id: 1
+                    dimension_id: 1
+                    create_by: 1
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                    is_featured: true
+                    product_images: []
+                    teak_images: []
+                    cover_images: []
+                    master_category:
+                      id: 1
+                      name: Indoor
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    dimension:
+                      id: 1
+                      width: '40.00'
+                      height: '80.00'
+                      depth: '40.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    creator:
+                      id: 1
+                      username: admin
+                      name: Administrator
+                      email: admin@example.com
+                      division: IT
+                      role_id: 1
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Teak Dining Chair'
+                      description:
+                        type: string
+                        example: 'Premium quality Teak Dining Chair crafted with finest materials. Perfect for modern interiors. Handmade by skilled artisans with attention to detail.'
+                      material:
+                        type: string
+                        example: 'Teak Wood'
+                      master_category_id:
+                        type: integer
+                        example: 1
+                      dimension_id:
+                        type: integer
+                        example: 1
+                      create_by:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                      is_featured:
+                        type: boolean
+                        example: true
+                      product_images:
+                        type: array
+                        example: []
+                      teak_images:
+                        type: array
+                        example: []
+                      cover_images:
+                        type: array
+                        example: []
+                      master_category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Indoor
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+                      dimension:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          width:
+                            type: string
+                            example: '40.00'
+                          height:
+                            type: string
+                            example: '80.00'
+                          depth:
+                            type: string
+                            example: '40.00'
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+                      creator:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          username:
+                            type: string
+                            example: admin
+                          name:
+                            type: string
+                            example: Administrator
+                          email:
+                            type: string
+                            example: admin@example.com
+                          division:
+                            type: string
+                            example: IT
+                          role_id:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1ProductsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Et animi quos velit et fugiat.'
+                  nullable: true
+                material:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: d
+                  nullable: true
+                master_category_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the master_categories table.'
+                  example: null
+                  nullable: true
+                dimension_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the dimensions table.'
+                  example: null
+                  nullable: true
+                product_images:
+                  type: array
+                  description: 'Must not be greater than 5120 characters.'
+                  example:
+                    - l
+                  items:
+                    type: string
+                teak_images:
+                  type: array
+                  description: 'Must not be greater than 5120 characters.'
+                  example:
+                    - j
+                  items:
+                    type: string
+                cover_images:
+                  type: array
+                  description: 'Must not be greater than 5120 characters.'
+                  example:
+                    - 'n'
+                  items:
+                    type: string
+                product_images_delete:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the product_images table.'
+                  example:
+                    - 16
+                  items:
+                    type: integer
+                teak_images_delete:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the teak_images table.'
+                  example:
+                    - 16
+                  items:
+                    type: integer
+                cover_images_delete:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the cover_images table.'
+                  example:
+                    - 16
+                  items:
+                    type: integer
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1ProductsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/csrs:
+    get:
+      summary: ''
+      operationId: getApiV1Csrs
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id: 2
+                        title: 'Local Artisan Empowerment'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 2
+                          csr_id: 2
+                          content: '<h2>Supporting Local Craftsmen</h2><p>We work directly with local artisans, providing them with fair wages and skill development opportunities. Our program has benefited over 500 craftsmen families.</p><img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800" alt="Artisan work"><p>Each piece of furniture carries the legacy of traditional craftsmanship passed down through generations.</p>'
+                      -
+                        id: 3
+                        title: 'Clean Water Project'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 3
+                          csr_id: 3
+                          content: '<h2>Access to Clean Water</h2><p>We have installed water purification systems in 20 villages near our manufacturing facilities. Over 5,000 people now have access to clean drinking water.</p><img src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=800" alt="Clean water"><p>This project reflects our commitment to community well-being beyond just business operations.</p>'
+                      -
+                        id: 4
+                        title: 'Education Scholarship Fund'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 4
+                          csr_id: 4
+                          content: '<h2>Investing in Future Generations</h2><p>Our scholarship program supports children of local craftsmen to pursue higher education. Since 2020, we have funded 150 scholarships.</p><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800" alt="Education"><p>Education is the foundation for sustainable community development.</p>'
+                      -
+                        id: 5
+                        title: 'Sustainable Forestry Partnership'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 5
+                          csr_id: 5
+                          content: '<h2>Responsible Wood Sourcing</h2><p>All our teak wood comes from certified sustainable forests. We partner with FSC-certified suppliers to ensure responsible forestry practices.</p><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Forest"><p>Sustainability is not just a choice, it is our responsibility for future generations.</p>'
+                      -
+                        id: 6
+                        title: 'Women Empowerment Workshop'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 6
+                          csr_id: 6
+                          content: '<h2>Empowering Women Artisans</h2><p>Our dedicated women empowerment program provides training in furniture finishing and design. Over 100 women have joined our workforce through this initiative.</p><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" alt="Women empowerment"><p>Gender equality in the workplace creates stronger communities.</p>'
+                      -
+                        id: 1
+                        title: 'Tree Planting Initiative 2024'
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 1
+                          csr_id: 1
+                          content: '<h2>Reforestation Program</h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.</p><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" alt="Tree planting"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.</p>'
+                    first_page_url: 'http://localhost/api/v1/csrs?page=1'
+                    from: 1
+                    last_page: 3
+                    last_page_url: 'http://localhost/api/v1/csrs?page=3'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/csrs?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/v1/csrs?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/csrs?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/csrs?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/v1/csrs?page=2'
+                    path: 'http://localhost/api/v1/csrs'
+                    per_page: 6
+                    prev_page_url: null
+                    to: 6
+                    total: 15
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id: 2
+                            title: 'Local Artisan Empowerment'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 2
+                              csr_id: 2
+                              content: '<h2>Supporting Local Craftsmen</h2><p>We work directly with local artisans, providing them with fair wages and skill development opportunities. Our program has benefited over 500 craftsmen families.</p><img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800" alt="Artisan work"><p>Each piece of furniture carries the legacy of traditional craftsmanship passed down through generations.</p>'
+                          -
+                            id: 3
+                            title: 'Clean Water Project'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 3
+                              csr_id: 3
+                              content: '<h2>Access to Clean Water</h2><p>We have installed water purification systems in 20 villages near our manufacturing facilities. Over 5,000 people now have access to clean drinking water.</p><img src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=800" alt="Clean water"><p>This project reflects our commitment to community well-being beyond just business operations.</p>'
+                          -
+                            id: 4
+                            title: 'Education Scholarship Fund'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 4
+                              csr_id: 4
+                              content: '<h2>Investing in Future Generations</h2><p>Our scholarship program supports children of local craftsmen to pursue higher education. Since 2020, we have funded 150 scholarships.</p><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800" alt="Education"><p>Education is the foundation for sustainable community development.</p>'
+                          -
+                            id: 5
+                            title: 'Sustainable Forestry Partnership'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 5
+                              csr_id: 5
+                              content: '<h2>Responsible Wood Sourcing</h2><p>All our teak wood comes from certified sustainable forests. We partner with FSC-certified suppliers to ensure responsible forestry practices.</p><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Forest"><p>Sustainability is not just a choice, it is our responsibility for future generations.</p>'
+                          -
+                            id: 6
+                            title: 'Women Empowerment Workshop'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 6
+                              csr_id: 6
+                              content: '<h2>Empowering Women Artisans</h2><p>Our dedicated women empowerment program provides training in furniture finishing and design. Over 100 women have joined our workforce through this initiative.</p><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" alt="Women empowerment"><p>Gender equality in the workplace creates stronger communities.</p>'
+                          -
+                            id: 1
+                            title: 'Tree Planting Initiative 2024'
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 1
+                              csr_id: 1
+                              content: '<h2>Reforestation Program</h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.</p><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" alt="Tree planting"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.</p>'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 2
+                            title:
+                              type: string
+                              example: 'Local Artisan Empowerment'
+                            create_by:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url:
+                              type: string
+                              example: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800'
+                            creator:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                username:
+                                  type: string
+                                  example: admin
+                                name:
+                                  type: string
+                                  example: Administrator
+                                email:
+                                  type: string
+                                  example: admin@example.com
+                                division:
+                                  type: string
+                                  example: IT
+                                role_id:
+                                  type: integer
+                                  example: 1
+                                created_at:
+                                  type: string
+                                  example: '2025-12-31T05:48:48.000000Z'
+                                updated_at:
+                                  type: string
+                                  example: '2025-12-31T05:48:48.000000Z'
+                                deleted_at:
+                                  type: string
+                                  example: null
+                            content:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 2
+                                csr_id:
+                                  type: integer
+                                  example: 2
+                                content:
+                                  type: string
+                                  example: '<h2>Supporting Local Craftsmen</h2><p>We work directly with local artisans, providing them with fair wages and skill development opportunities. Our program has benefited over 500 craftsmen families.</p><img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800" alt="Artisan work"><p>Each piece of furniture carries the legacy of traditional craftsmanship passed down through generations.</p>'
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/csrs?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/csrs?page=3'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/csrs?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/v1/csrs?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/csrs?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/csrs?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/csrs?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/csrs'
+                      per_page:
+                        type: integer
+                        example: 6
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 6
+                      total:
+                        type: integer
+                        example: 15
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Csrs
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                content:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - title
+      security: []
+  '/api/v1/csrs/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1CsrsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    title: 'Tree Planting Initiative 2024'
+                    create_by: 1
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                    thumbnail_url: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'
+                    creator:
+                      id: 1
+                      username: admin
+                      name: Administrator
+                      email: admin@example.com
+                      division: IT
+                      role_id: 1
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    content:
+                      id: 1
+                      csr_id: 1
+                      content: '<h2>Reforestation Program</h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.</p><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" alt="Tree planting"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.</p>'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Tree Planting Initiative 2024'
+                      create_by:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                      thumbnail_url:
+                        type: string
+                        example: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'
+                      creator:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          username:
+                            type: string
+                            example: admin
+                          name:
+                            type: string
+                            example: Administrator
+                          email:
+                            type: string
+                            example: admin@example.com
+                          division:
+                            type: string
+                            example: IT
+                          role_id:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+                      content:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          csr_id:
+                            type: integer
+                            example: 1
+                          content:
+                            type: string
+                            example: '<h2>Reforestation Program</h2><p>Our commitment to sustainability includes planting over 10,000 trees annually in deforested areas. This initiative helps restore natural habitats and supports local communities.</p><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" alt="Tree planting"><p>Through partnerships with local farmers, we ensure that every tree planted contributes to long-term environmental restoration.</p>'
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1CsrsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                content:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+              required:
+                - title
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1CsrsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the csr.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/news:
+    get:
+      summary: ''
+      operationId: getApiV1News
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    current_page: 1
+                    data:
+                      -
+                        id: 2
+                        title: 'Company Celebrates 15 Years of Excellence'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 2
+                          news_id: 2
+                          content: '<h2>A Milestone Anniversary</h2><p>This year marks our 15th anniversary in the furniture industry. From a small workshop to an international brand, our journey has been remarkable.</p><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800" alt="Celebration"><p>We extend our heartfelt thanks to our customers, partners, and the dedicated team who made this possible.</p>'
+                      -
+                        id: 3
+                        title: 'Expansion to European Market'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 3
+                          news_id: 3
+                          content: '<h2>New Markets, New Opportunities</h2><p>We are excited to announce our expansion into the European market. Our showrooms will soon be available in Germany, France, and the Netherlands.</p><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="Europe expansion"><p>This expansion brings our authentic Indonesian craftsmanship closer to European customers who appreciate quality and sustainability.</p>'
+                      -
+                        id: 4
+                        title: 'Award-Winning Design Recognition'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 4
+                          news_id: 4
+                          content: '<h2>International Design Award</h2><p>Our Modern Heritage Chair has won the prestigious International Furniture Design Award 2024. This recognition highlights our commitment to innovative design.</p><img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800" alt="Award"><p>We are honored to receive this award and will continue pushing the boundaries of furniture design.</p>'
+                      -
+                        id: 5
+                        title: 'Sustainable Manufacturing Certification'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 5
+                          news_id: 5
+                          content: '<h2>FSC Certification Renewed</h2><p>We are proud to announce the renewal of our FSC (Forest Stewardship Council) certification, reaffirming our commitment to sustainable forestry practices.</p><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Forest"><p>Every piece of furniture you purchase supports responsible forest management.</p>'
+                      -
+                        id: 6
+                        title: 'New Factory Technology Upgrade'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 6
+                          news_id: 6
+                          content: '<h2>Investing in Precision</h2><p>Our factory has undergone a significant technology upgrade with state-of-the-art CNC machines that enhance precision while maintaining our handcrafted finish.</p><img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800" alt="Factory"><p>Technology and tradition work hand in hand to deliver the best quality products.</p>'
+                      -
+                        id: 7
+                        title: 'Partnership with Luxury Hotels'
+                        is_top_news: false
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 7
+                          news_id: 7
+                          content: '<h2>Furnishing Five-Star Properties</h2><p>We have secured partnerships with several five-star hotel chains to supply custom furniture for their properties across Asia and the Middle East.</p><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel"><p>Our furniture will grace the lobbies and suites of world-renowned hospitality brands.</p>'
+                      -
+                        id: 1
+                        title: 'New Premium Collection Launch 2024'
+                        is_top_news: true
+                        create_by: 1
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        thumbnail_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                        creator:
+                          id: 1
+                          username: admin
+                          name: Administrator
+                          email: admin@example.com
+                          division: IT
+                          role_id: 1
+                          created_at: '2025-12-31T05:48:48.000000Z'
+                          updated_at: '2025-12-31T05:48:48.000000Z'
+                          deleted_at: null
+                        content:
+                          id: 1
+                          news_id: 1
+                          content: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                    first_page_url: 'http://localhost/api/v1/news?page=1'
+                    from: 1
+                    last_page: 3
+                    last_page_url: 'http://localhost/api/v1/news?page=3'
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/news?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/v1/news?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/news?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/news?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    next_page_url: 'http://localhost/api/v1/news?page=2'
+                    path: 'http://localhost/api/v1/news'
+                    per_page: 7
+                    prev_page_url: null
+                    to: 7
+                    total: 20
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      data:
+                        type: array
+                        example:
+                          -
+                            id: 2
+                            title: 'Company Celebrates 15 Years of Excellence'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 2
+                              news_id: 2
+                              content: '<h2>A Milestone Anniversary</h2><p>This year marks our 15th anniversary in the furniture industry. From a small workshop to an international brand, our journey has been remarkable.</p><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800" alt="Celebration"><p>We extend our heartfelt thanks to our customers, partners, and the dedicated team who made this possible.</p>'
+                          -
+                            id: 3
+                            title: 'Expansion to European Market'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 3
+                              news_id: 3
+                              content: '<h2>New Markets, New Opportunities</h2><p>We are excited to announce our expansion into the European market. Our showrooms will soon be available in Germany, France, and the Netherlands.</p><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="Europe expansion"><p>This expansion brings our authentic Indonesian craftsmanship closer to European customers who appreciate quality and sustainability.</p>'
+                          -
+                            id: 4
+                            title: 'Award-Winning Design Recognition'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 4
+                              news_id: 4
+                              content: '<h2>International Design Award</h2><p>Our Modern Heritage Chair has won the prestigious International Furniture Design Award 2024. This recognition highlights our commitment to innovative design.</p><img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800" alt="Award"><p>We are honored to receive this award and will continue pushing the boundaries of furniture design.</p>'
+                          -
+                            id: 5
+                            title: 'Sustainable Manufacturing Certification'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 5
+                              news_id: 5
+                              content: '<h2>FSC Certification Renewed</h2><p>We are proud to announce the renewal of our FSC (Forest Stewardship Council) certification, reaffirming our commitment to sustainable forestry practices.</p><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Forest"><p>Every piece of furniture you purchase supports responsible forest management.</p>'
+                          -
+                            id: 6
+                            title: 'New Factory Technology Upgrade'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 6
+                              news_id: 6
+                              content: '<h2>Investing in Precision</h2><p>Our factory has undergone a significant technology upgrade with state-of-the-art CNC machines that enhance precision while maintaining our handcrafted finish.</p><img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800" alt="Factory"><p>Technology and tradition work hand in hand to deliver the best quality products.</p>'
+                          -
+                            id: 7
+                            title: 'Partnership with Luxury Hotels'
+                            is_top_news: false
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 7
+                              news_id: 7
+                              content: '<h2>Furnishing Five-Star Properties</h2><p>We have secured partnerships with several five-star hotel chains to supply custom furniture for their properties across Asia and the Middle East.</p><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Hotel"><p>Our furniture will grace the lobbies and suites of world-renowned hospitality brands.</p>'
+                          -
+                            id: 1
+                            title: 'New Premium Collection Launch 2024'
+                            is_top_news: true
+                            create_by: 1
+                            created_at: '2025-12-31T05:48:48.000000Z'
+                            updated_at: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                            creator:
+                              id: 1
+                              username: admin
+                              name: Administrator
+                              email: admin@example.com
+                              division: IT
+                              role_id: 1
+                              created_at: '2025-12-31T05:48:48.000000Z'
+                              updated_at: '2025-12-31T05:48:48.000000Z'
+                              deleted_at: null
+                            content:
+                              id: 1
+                              news_id: 1
+                              content: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 2
+                            title:
+                              type: string
+                              example: 'Company Celebrates 15 Years of Excellence'
+                            is_top_news:
+                              type: boolean
+                              example: false
+                            create_by:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            updated_at:
+                              type: string
+                              example: '2025-12-31T05:48:48.000000Z'
+                            thumbnail_url:
+                              type: string
+                              example: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800'
+                            creator:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                username:
+                                  type: string
+                                  example: admin
+                                name:
+                                  type: string
+                                  example: Administrator
+                                email:
+                                  type: string
+                                  example: admin@example.com
+                                division:
+                                  type: string
+                                  example: IT
+                                role_id:
+                                  type: integer
+                                  example: 1
+                                created_at:
+                                  type: string
+                                  example: '2025-12-31T05:48:48.000000Z'
+                                updated_at:
+                                  type: string
+                                  example: '2025-12-31T05:48:48.000000Z'
+                                deleted_at:
+                                  type: string
+                                  example: null
+                            content:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 2
+                                news_id:
+                                  type: integer
+                                  example: 2
+                                content:
+                                  type: string
+                                  example: '<h2>A Milestone Anniversary</h2><p>This year marks our 15th anniversary in the furniture industry. From a small workshop to an international brand, our journey has been remarkable.</p><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800" alt="Celebration"><p>We extend our heartfelt thanks to our customers, partners, and the dedicated team who made this possible.</p>'
+                      first_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/news?page=1'
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      last_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/news?page=3'
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/news?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/v1/news?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/news?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/news?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      next_page_url:
+                        type: string
+                        example: 'http://localhost/api/v1/news?page=2'
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/news'
+                      per_page:
+                        type: integer
+                        example: 7
+                      prev_page_url:
+                        type: string
+                        example: null
+                      to:
+                        type: integer
+                        example: 7
+                      total:
+                        type: integer
+                        example: 20
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1News
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                content:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+                is_top_news:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+              required:
+                - title
+      security: []
+  /api/v1/news/top-news:
+    get:
+      summary: 'Get top news untuk banner/header'
+      operationId: getTopNewsUntukBannerheader
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    title: 'New Premium Collection Launch 2024'
+                    create_by: 1
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                    is_top_news: true
+                    thumbnail_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                    creator:
+                      id: 1
+                      username: admin
+                      name: Administrator
+                      email: admin@example.com
+                      division: IT
+                      role_id: 1
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    content:
+                      id: 1
+                      news_id: 1
+                      content: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'New Premium Collection Launch 2024'
+                      create_by:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                      is_top_news:
+                        type: boolean
+                        example: true
+                      thumbnail_url:
+                        type: string
+                        example: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                      creator:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          username:
+                            type: string
+                            example: admin
+                          name:
+                            type: string
+                            example: Administrator
+                          email:
+                            type: string
+                            example: admin@example.com
+                          division:
+                            type: string
+                            example: IT
+                          role_id:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+                      content:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          news_id:
+                            type: integer
+                            example: 1
+                          content:
+                            type: string
+                            example: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/news/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1NewsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    title: 'New Premium Collection Launch 2024'
+                    create_by: 1
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                    is_top_news: true
+                    thumbnail_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                    creator:
+                      id: 1
+                      username: admin
+                      name: Administrator
+                      email: admin@example.com
+                      division: IT
+                      role_id: 1
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    content:
+                      id: 1
+                      news_id: 1
+                      content: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'New Premium Collection Launch 2024'
+                      create_by:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+                      is_top_news:
+                        type: boolean
+                        example: true
+                      thumbnail_url:
+                        type: string
+                        example: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800'
+                      creator:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          username:
+                            type: string
+                            example: admin
+                          name:
+                            type: string
+                            example: Administrator
+                          email:
+                            type: string
+                            example: admin@example.com
+                          division:
+                            type: string
+                            example: IT
+                          role_id:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          deleted_at:
+                            type: string
+                            example: null
+                      content:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          news_id:
+                            type: integer
+                            example: 1
+                          content:
+                            type: string
+                            example: '<h2>Introducing Our Finest Collection</h2><p>We are thrilled to announce the launch of our Premium Collection 2024, featuring handcrafted furniture pieces that blend traditional craftsmanship with contemporary design.</p><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Premium furniture"><p>Each piece in this collection represents months of meticulous work by our master artisans, using only the finest teak wood sourced from sustainable forests.</p>'
+                          created_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2025-12-31T05:48:48.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1NewsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: b
+                content:
+                  type: string
+                  description: ''
+                  example: architecto
+                  nullable: true
+                is_top_news:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+              required:
+                - title
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1NewsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the news.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/brands:
+    get:
+      summary: ''
+      operationId: getApiV1Brands
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Brands
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image_url:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+      security: []
+  '/api/v1/brands/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1BrandsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data: []
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1BrandsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image_url:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1BrandsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the brand.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/certifications:
+    get:
+      summary: ''
+      operationId: getApiV1Certifications
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Certifications
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image_url:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+      security: []
+  '/api/v1/certifications/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1CertificationsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data: []
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1CertificationsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image_url:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1CertificationsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the certification.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/master-categories:
+    get:
+      summary: ''
+      operationId: getApiV1MasterCategories
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    -
+                      id: 1
+                      name: Indoor
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    -
+                      id: 2
+                      name: Outdoor
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Indoor
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                      -
+                        id: 2
+                        name: Outdoor
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Indoor
+                        created_at:
+                          type: string
+                          example: '2025-12-31T05:48:48.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-12-31T05:48:48.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1MasterCategories
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+              required:
+                - name
+      security: []
+  '/api/v1/master-categories/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1MasterCategoriesId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    name: Indoor
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Indoor
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1MasterCategoriesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: null
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1MasterCategoriesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the master category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/dimensions:
+    get:
+      summary: ''
+      operationId: getApiV1Dimensions
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    -
+                      id: 1
+                      width: '40.00'
+                      height: '80.00'
+                      depth: '40.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    -
+                      id: 2
+                      width: '60.00'
+                      height: '75.00'
+                      depth: '60.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    -
+                      id: 3
+                      width: '120.00'
+                      height: '75.00'
+                      depth: '80.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    -
+                      id: 4
+                      width: '80.00'
+                      height: '45.00'
+                      depth: '50.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                    -
+                      id: 5
+                      width: '200.00'
+                      height: '90.00'
+                      depth: '100.00'
+                      created_at: '2025-12-31T05:48:48.000000Z'
+                      updated_at: '2025-12-31T05:48:48.000000Z'
+                      deleted_at: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        width: '40.00'
+                        height: '80.00'
+                        depth: '40.00'
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                      -
+                        id: 2
+                        width: '60.00'
+                        height: '75.00'
+                        depth: '60.00'
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                      -
+                        id: 3
+                        width: '120.00'
+                        height: '75.00'
+                        depth: '80.00'
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                      -
+                        id: 4
+                        width: '80.00'
+                        height: '45.00'
+                        depth: '50.00'
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                      -
+                        id: 5
+                        width: '200.00'
+                        height: '90.00'
+                        depth: '100.00'
+                        created_at: '2025-12-31T05:48:48.000000Z'
+                        updated_at: '2025-12-31T05:48:48.000000Z'
+                        deleted_at: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        width:
+                          type: string
+                          example: '40.00'
+                        height:
+                          type: string
+                          example: '80.00'
+                        depth:
+                          type: string
+                          example: '40.00'
+                        created_at:
+                          type: string
+                          example: '2025-12-31T05:48:48.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-12-31T05:48:48.000000Z'
+                        deleted_at:
+                          type: string
+                          example: null
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Dimensions
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                width:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+                height:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+                depth:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+      security: []
+  '/api/v1/dimensions/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1DimensionsId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    id: 1
+                    width: '40.00'
+                    height: '80.00'
+                    depth: '40.00'
+                    created_at: '2025-12-31T05:48:48.000000Z'
+                    updated_at: '2025-12-31T05:48:48.000000Z'
+                    deleted_at: null
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      width:
+                        type: string
+                        example: '40.00'
+                      height:
+                        type: string
+                        example: '80.00'
+                      depth:
+                        type: string
+                        example: '40.00'
+                      created_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-12-31T05:48:48.000000Z'
+                      deleted_at:
+                        type: string
+                        example: null
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1DimensionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                width:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+                height:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+                depth:
+                  type: number
+                  description: ''
+                  example: 4326.41688
+                  nullable: true
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1DimensionsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the dimension.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/banners:
+    get:
+      summary: 'Public endpoint - get active banners sorted by order'
+      operationId: publicEndpointGetActiveBannersSortedByOrder
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: Success
+                  data:
+                    -
+                      id: 4
+                      title: c
+                      image: 'http://localhost/storage/banners/v9mn1tEsHj5A10XjevMCkfR4H7anb1oTd7RTXOqJ.png'
+                      link: null
+                      order: 1
+                      is_active: true
+                      created_at: '2025-12-31T06:02:39.000000Z'
+                      updated_at: '2025-12-31T06:02:47.000000Z'
+                    -
+                      id: 3
+                      title: b
+                      image: 'http://localhost/storage/banners/SUMZrvFRwnXMczawo3vDQPuIVckeY99hlPq7aHq3.png'
+                      link: null
+                      order: 2
+                      is_active: true
+                      created_at: '2025-12-31T06:02:29.000000Z'
+                      updated_at: '2025-12-31T06:03:15.000000Z'
+                    -
+                      id: 2
+                      title: a
+                      image: 'http://localhost/storage/banners/ahvHlNiCvt5KT9JJTw4ooaeLnKWF13gqg2N4Mwq6.png'
+                      link: null
+                      order: 3
+                      is_active: true
+                      created_at: '2025-12-31T06:02:21.000000Z'
+                      updated_at: '2025-12-31T06:02:57.000000Z'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: c
+                        image: 'http://localhost/storage/banners/v9mn1tEsHj5A10XjevMCkfR4H7anb1oTd7RTXOqJ.png'
+                        link: null
+                        order: 1
+                        is_active: true
+                        created_at: '2025-12-31T06:02:39.000000Z'
+                        updated_at: '2025-12-31T06:02:47.000000Z'
+                      -
+                        id: 3
+                        title: b
+                        image: 'http://localhost/storage/banners/SUMZrvFRwnXMczawo3vDQPuIVckeY99hlPq7aHq3.png'
+                        link: null
+                        order: 2
+                        is_active: true
+                        created_at: '2025-12-31T06:02:29.000000Z'
+                        updated_at: '2025-12-31T06:03:15.000000Z'
+                      -
+                        id: 2
+                        title: a
+                        image: 'http://localhost/storage/banners/ahvHlNiCvt5KT9JJTw4ooaeLnKWF13gqg2N4Mwq6.png'
+                        link: null
+                        order: 3
+                        is_active: true
+                        created_at: '2025-12-31T06:02:21.000000Z'
+                        updated_at: '2025-12-31T06:02:57.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        title:
+                          type: string
+                          example: c
+                        image:
+                          type: string
+                          example: 'http://localhost/storage/banners/v9mn1tEsHj5A10XjevMCkfR4H7anb1oTd7RTXOqJ.png'
+                        link:
+                          type: string
+                          example: null
+                        order:
+                          type: integer
+                          example: 1
+                        is_active:
+                          type: boolean
+                          example: true
+                        created_at:
+                          type: string
+                          example: '2025-12-31T06:02:39.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-12-31T06:02:47.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/contact:
+    post:
+      summary: "Public endpoint - submit contact form\nRate limited via route middleware"
+      operationId: publicEndpointSubmitContactFormRateLimitedViaRouteMiddleware
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: zbailey@example.net
+                phone:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: iyvdljnikhwaykcm
+                  nullable: true
+                message:
+                  type: string
+                  description: 'Must not be greater than 2000 characters.'
+                  example: 'y'
+                product_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the products table.'
+                  example: null
+                  nullable: true
+                website:
+                  type: string
+                  description: 'Must not be greater than 0 characters.'
+                  example: u
+                fax:
+                  type: string
+                  description: 'Must not be greater than 0 characters.'
+                  example: w
+                _token_time:
+                  type: integer
+                  description: ''
+                  example: 16
+                  nullable: true
+              required:
+                - name
+                - email
+                - message
+      security: []
+  /api/v1/logout:
+    post:
+      summary: 'Logout user (hapus token)'
+      operationId: logoutUserhapusToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/me:
+    get:
+      summary: 'Ambil data user yang sedang login'
+      operationId: ambilDataUserYangSedangLogin
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/roles:
+    get:
+      summary: 'List all roles with pagination'
+      operationId: listAllRolesWithPagination
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Create a new role'
+      operationId: createANewRole
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/roles/{id}':
+    get:
+      summary: 'Show single role'
+      operationId: showSingleRole
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update existing role'
+      operationId: updateExistingRole
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Delete role'
+      operationId: deleteRole
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the role.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/v1/users:
+    get:
+      summary: ''
+      operationId: getApiV1Users
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1Users
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                  nullable: true
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: 'n'
+                  nullable: true
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ashly64@example.com
+                  nullable: true
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: pBNvYg
+                division:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: h
+                  nullable: true
+                role_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the roles table.'
+                  example: null
+                  nullable: true
+              required:
+                - password
+      security: []
+  '/api/v1/users/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1UsersId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1UsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                  nullable: true
+                name:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: 'n'
+                  nullable: true
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ashly64@example.com
+                  nullable: true
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: pBNvYg
+                  nullable: true
+                division:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: h
+                  nullable: true
+                role_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the roles table.'
+                  example: null
+                  nullable: true
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1UsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/contacts/stats:
+    get:
+      summary: 'Admin - get message statistics for dashboard charts'
+      operationId: adminGetMessageStatisticsForDashboardCharts
+      description: ''
+      parameters:
+        -
+          in: query
+          name: period
+          description: 'Filter by period: daily, weekly, monthly. Default: daily'
+          example: architecto
+          required: false
+          schema:
+            type: string
+            description: 'Filter by period: daily, weekly, monthly. Default: daily'
+            example: architecto
+        -
+          in: query
+          name: start_date
+          description: 'date Start date (YYYY-MM-DD). Default: 30 days ago'
+          example: architecto
+          required: false
+          schema:
+            type: string
+            description: 'date Start date (YYYY-MM-DD). Default: 30 days ago'
+            example: architecto
+        -
+          in: query
+          name: end_date
+          description: 'date End date (YYYY-MM-DD). Default: today'
+          example: architecto
+          required: false
+          schema:
+            type: string
+            description: 'date End date (YYYY-MM-DD). Default: today'
+            example: architecto
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                period:
+                  type: string
+                  description: ''
+                  example: monthly
+                  enum:
+                    - daily
+                    - weekly
+                    - monthly
+                start_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: '2026-01-05'
+                end_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>start_date</code>.'
+                  example: '2052-01-29'
+      security: []
+  /api/v1/admin/contacts:
+    get:
+      summary: 'Admin - list all contact messages with filtering'
+      operationId: adminListAllContactMessagesWithFiltering
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/admin/contacts/{id}':
+    get:
+      summary: 'Admin - show single contact message'
+      operationId: adminShowSingleContactMessage
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Admin - update contact message status'
+      operationId: adminUpdateContactMessageStatus
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: ''
+                  example: new
+                  enum:
+                    - new
+                    - read
+                    - replied
+              required:
+                - status
+      security: []
+    delete:
+      summary: 'Admin - delete contact message'
+      operationId: adminDeleteContactMessage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the contact.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  /api/v1/admin/banners:
+    get:
+      summary: 'Admin - get all banners with pagination'
+      operationId: adminGetAllBannersWithPagination
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Admin - store new banner'
+      operationId: adminStoreNewBanner
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                link:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                order:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 84
+                  nullable: true
+                is_active:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: true
+              required:
+                - title
+      security: []
+  '/api/v1/admin/banners/{id}':
+    get:
+      summary: 'Admin - show single banner'
+      operationId: adminShowSingleBanner
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Unauthenticated. Please login first.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Unauthenticated. Please login first.'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Admin - update banner'
+      operationId: adminUpdateBanner
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: b
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                link:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: 'n'
+                  nullable: true
+                order:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 84
+                  nullable: true
+                is_active:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: true
+      security: []
+    delete:
+      summary: 'Admin - delete banner'
+      operationId: adminDeleteBanner
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the banner.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+  '/api/v1/product-images/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiV1ProductImagesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product image.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  '/api/v1/product-images/{id}/force':
+    delete:
+      summary: ''
+      operationId: deleteApiV1ProductImagesIdForce
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product image.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  '/api/v1/teak-images/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiV1TeakImagesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the teak image.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/teak-images/{id}/force':
+    delete:
+      summary: ''
+      operationId: deleteApiV1TeakImagesIdForce
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the teak image.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/cover-images/{id}':
+    delete:
+      summary: ''
+      operationId: deleteApiV1CoverImagesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the cover image.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/cover-images/{id}/force':
+    delete:
+      summary: ''
+      operationId: deleteApiV1CoverImagesIdForce
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the cover image.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/upload/image:
+    post:
+      summary: 'Upload image for editor (News/CSR content)'
+      operationId: uploadImageForEditorNewsCSRContent
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Image uploaded successfully'
+                  data:
+                    url: 'https://example.com/storage/editor-images/abc123.webp'
+                    path: editor-images/abc123.webp
+                    filename: abc123.webp
+                    size: 102400
+                    mime_type: image/webp
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Image uploaded successfully'
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        example: 'https://example.com/storage/editor-images/abc123.webp'
+                      path:
+                        type: string
+                        example: editor-images/abc123.webp
+                      filename:
+                        type: string
+                        example: abc123.webp
+                      size:
+                        type: integer
+                        example: 102400
+                      mime_type:
+                        type: string
+                        example: image/webp
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: 'Image file to upload. Max 5MB. Allowed: jpg, jpeg, png, gif, webp'
+                folder:
+                  type: string
+                  description: 'Optional folder path. Default: editor-images'
+                  example: architecto
+                  nullable: true
+              required:
+                - image
+      security: []
+    delete:
+      summary: 'Delete uploaded image'
+      operationId: deleteUploadedImage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Image deleted successfully'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Image deleted successfully'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                  description: 'The path of the image to delete'
+                  example: architecto
+              required:
+                - path
+      security: []
+  /api/v1/upload/images:
+    post:
+      summary: 'Upload multiple images at once'
+      operationId: uploadMultipleImagesAtOnce
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: '3 images uploaded successfully'
+                  data:
+                    -
+                      url: ...
+                      path: ...
+                      filename: ...
+                    -
+                      url: ...
+                      path: ...
+                      filename: ...
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: '3 images uploaded successfully'
+                  data:
+                    type: array
+                    example:
+                      -
+                        url: ...
+                        path: ...
+                        filename: ...
+                      -
+                        url: ...
+                        path: ...
+                        filename: ...
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: ...
+                        path:
+                          type: string
+                          example: ...
+                        filename:
+                          type: string
+                          example: ...
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  description: 'Array of image files. Max 5 images, each max 5MB'
+                  items:
+                    type: string
+                    format: binary
+                folder:
+                  type: string
+                  description: 'Optional folder path. Default: editor-images'
+                  example: architecto
+                  nullable: true
+              required:
+                - images
+      security: []
+  /api/v1/ping:
+    get:
+      summary: ''
+      operationId: getApiV1Ping
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  message: 'Laravel connected'
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  message:
+                    type: string
+                    example: 'Laravel connected'
+      tags:
+        - Endpoints
+      security: []

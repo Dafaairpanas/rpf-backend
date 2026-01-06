@@ -9,6 +9,7 @@ use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use App\Models\NewsContent;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -18,23 +19,41 @@ class NewsController extends Controller
      */
     public function topNews()
     {
-        $topNews = News::with(['creator', 'content'])
-            ->where('is_top_news', true)
-            ->first();
+        return CacheService::remember(
+            'news:top',
+            CacheService::TAG_NEWS,
+            CacheService::TTL_MEDIUM,
+            function () {
+                $topNews = News::with(['creator', 'content'])
+                    ->where('is_top_news', true)
+                    ->first();
 
-        return ApiResponse::success($topNews);
+                return ApiResponse::success($topNews);
+            }
+        );
     }
 
     public function index(Request $request)
     {
         $perPage = (int) $request->get('per_page', 7);
 
-        // Load content untuk extract thumbnail, tapi hanya select field yang diperlukan
-        return ApiResponse::success(
-            News::with(['creator', 'content:id,news_id,content'])
-                ->select(['id', 'title', 'is_top_news', 'create_by', 'created_at', 'updated_at'])
-                ->orderBy('created_at', 'desc')
-                ->paginate($perPage)
+        $cacheKey = CacheService::generateKey('news:index', [
+            'per_page' => $perPage,
+            'page' => $request->get('page', 1),
+        ]);
+
+        return CacheService::remember(
+            $cacheKey,
+            CacheService::TAG_NEWS,
+            CacheService::TTL_MEDIUM,
+            function () use ($perPage) {
+                return ApiResponse::success(
+                    News::with(['creator', 'content:id,news_id,content'])
+                        ->select(['id', 'title', 'is_top_news', 'create_by', 'created_at', 'updated_at'])
+                        ->orderBy('created_at', 'desc')
+                        ->paginate($perPage)
+                );
+            }
         );
     }
 
@@ -59,13 +78,24 @@ class NewsController extends Controller
             ]);
         }
 
+        // Invalidate news cache
+        CacheService::invalidate(CacheService::TAG_NEWS);
+
         return ApiResponse::success($news->load(['creator', 'content']), 'News created successfully', 201);
     }
 
     public function show($id)
     {
-        // Load content untuk detail
-        return ApiResponse::success(News::with(['creator', 'content'])->findOrFail($id));
+        $cacheKey = CacheService::generateKey('news:show', ['id' => $id]);
+
+        return CacheService::remember(
+            $cacheKey,
+            CacheService::TAG_NEWS,
+            CacheService::TTL_LONG,
+            function () use ($id) {
+                return ApiResponse::success(News::with(['creator', 'content'])->findOrFail($id));
+            }
+        );
     }
 
     public function update(UpdateNewsRequest $request, $id)
@@ -89,6 +119,9 @@ class NewsController extends Controller
             );
         }
 
+        // Invalidate news cache
+        CacheService::invalidate(CacheService::TAG_NEWS);
+
         return ApiResponse::success($news->load(['creator', 'content']), 'News updated successfully');
     }
 
@@ -96,6 +129,9 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
         $news->delete(); // Cascade delete akan hapus content otomatis
+
+        // Invalidate news cache
+        CacheService::invalidate(CacheService::TAG_NEWS);
 
         return ApiResponse::success(null, 'News deleted successfully');
     }
