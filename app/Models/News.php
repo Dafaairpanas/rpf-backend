@@ -63,7 +63,18 @@ class News extends Model
 
         // Extract first <img src="...">
         if (preg_match('/<img[^>]+src=["\']([^"\']+)["\']/', $html, $matches)) {
-            return $matches[1];
+            $url = $matches[1];
+
+            // Jika URL relative (tidak ada http/https dan tidak diawali //)
+            if (!preg_match('~^(?:f|ht)tps?://~i', $url) && !str_starts_with($url, '//')) {
+                // Pastikan tidak ada double slash saat digabung dengan APP_URL
+                $baseUrl = rtrim(config('app.url'), '/');
+                $relativePath = ltrim($url, '/');
+
+                return $baseUrl . '/' . $relativePath;
+            }
+
+            return $url;
         }
 
         return null;

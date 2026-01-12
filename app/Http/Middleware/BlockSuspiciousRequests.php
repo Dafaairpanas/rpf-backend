@@ -169,6 +169,20 @@ class BlockSuspiciousRequests
     }
 
     /**
+     * Fields to exclude from SQL injection check
+     * These fields contain legitimate HTML/text content
+     */
+    protected array $excludedFields = [
+        'content',
+        'body',
+        'description',
+        'message',
+        'bio',
+        'notes',
+        'text',
+    ];
+
+    /**
      * Check for SQL injection attempts in query string and input
      */
     protected function hasSqlInjection(Request $request): bool
@@ -176,8 +190,9 @@ class BlockSuspiciousRequests
         // Check query string
         $queryString = $request->getQueryString() ?? '';
 
-        // Check all input values
-        $allInput = implode(' ', array_filter($request->all(), 'is_string'));
+        // Check input values, excluding content fields that may contain legitimate HTML
+        $inputsToCheck = array_filter($request->except($this->excludedFields), 'is_string');
+        $allInput = implode(' ', $inputsToCheck);
 
         $toCheck = $queryString . ' ' . $allInput;
 

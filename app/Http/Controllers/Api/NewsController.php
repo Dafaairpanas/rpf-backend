@@ -9,6 +9,7 @@ use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use App\Models\NewsContent;
+use App\Services\Base64ImageProcessor;
 use App\Services\CacheService;
 use Illuminate\Http\Request;
 
@@ -71,7 +72,13 @@ class NewsController extends Controller
 
         // Simpan content ke tabel terpisah jika ada
         if (filled($data['content'])) {
-            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
+            // Ekstrak gambar base64 dan simpan sebagai file
+            $imageProcessor = new Base64ImageProcessor();
+            $processedContent = $imageProcessor->process($data['content']);
+
+            // Sanitize HTML
+            $sanitizedContent = HtmlSanitizer::sanitize($processedContent);
+
             NewsContent::create([
                 'news_id' => $news->id,
                 'content' => $sanitizedContent,
@@ -111,7 +118,12 @@ class NewsController extends Controller
 
         // Update atau create content
         if (isset($data['content'])) {
-            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
+            // Ekstrak gambar base64 dan simpan sebagai file
+            $imageProcessor = new Base64ImageProcessor();
+            $processedContent = $imageProcessor->process($data['content']);
+
+            // Sanitize HTML
+            $sanitizedContent = HtmlSanitizer::sanitize($processedContent);
 
             $news->content()->updateOrCreate(
                 ['news_id' => $news->id],

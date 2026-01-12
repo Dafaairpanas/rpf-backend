@@ -54,15 +54,24 @@ class HtmlSanitizer
         // Daftar atribut yang diizinkan per tag
         $allowedAttributes = [
             'a' => ['href', 'title', 'target', 'rel'],
-            'img' => ['src', 'alt', 'title', 'width', 'height', 'style', 'class'],
-            'figure' => ['class', 'style'],
-            'figcaption' => ['class', 'style'],
-            'table' => ['border', 'cellpadding', 'cellspacing', 'width'],
-            'td' => ['colspan', 'rowspan', 'width', 'height'],
-            'th' => ['colspan', 'rowspan', 'width', 'height'],
+            'img' => ['src', 'alt', 'title', 'width', 'height', 'style', 'class', 'align'],
+            'figure' => ['class', 'style', 'align'],
+            'figcaption' => ['class', 'style', 'align'],
+            'table' => ['border', 'cellpadding', 'cellspacing', 'width', 'style', 'class', 'align'],
+            'thead' => ['style', 'class', 'align', 'valign'],
+            'tbody' => ['style', 'class', 'align', 'valign'],
+            'tr' => ['style', 'class', 'align', 'valign'],
+            'td' => ['colspan', 'rowspan', 'width', 'height', 'style', 'class', 'align', 'valign'],
+            'th' => ['colspan', 'rowspan', 'width', 'height', 'style', 'class', 'align', 'valign'],
             'span' => ['style', 'class'],
-            'div' => ['style', 'class'],
-            'p' => ['style', 'class'],
+            'div' => ['style', 'class', 'align'],
+            'p' => ['style', 'class', 'align'],
+            'h1' => ['style', 'class', 'align'],
+            'h2' => ['style', 'class', 'align'],
+            'h3' => ['style', 'class', 'align'],
+            'h4' => ['style', 'class', 'align'],
+            'h5' => ['style', 'class', 'align'],
+            'h6' => ['style', 'class', 'align'],
         ];
 
         // Konfigurasi strip_tags dengan allowed tags

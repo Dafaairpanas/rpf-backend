@@ -9,6 +9,7 @@ use App\Http\Requests\StoreCsrRequest;
 use App\Http\Requests\UpdateCsrRequest;
 use App\Models\Csr;
 use App\Models\CsrContent;
+use App\Services\Base64ImageProcessor;
 use App\Services\CacheService;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,13 @@ class CsrController extends Controller
 
         // Simpan content ke tabel terpisah jika ada
         if (filled($data['content'])) {
-            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
+            // Ekstrak gambar base64 dan simpan sebagai file
+            $imageProcessor = new Base64ImageProcessor();
+            $processedContent = $imageProcessor->process($data['content']);
+
+            // Sanitize HTML
+            $sanitizedContent = HtmlSanitizer::sanitize($processedContent);
+
             CsrContent::create([
                 'csr_id' => $csr->id,
                 'content' => $sanitizedContent,
@@ -90,7 +97,12 @@ class CsrController extends Controller
 
         // Update atau create content
         if (isset($data['content'])) {
-            $sanitizedContent = HtmlSanitizer::sanitize($data['content']);
+            // Ekstrak gambar base64 dan simpan sebagai file
+            $imageProcessor = new Base64ImageProcessor();
+            $processedContent = $imageProcessor->process($data['content']);
+
+            // Sanitize HTML
+            $sanitizedContent = HtmlSanitizer::sanitize($processedContent);
 
             $csr->content()->updateOrCreate(
                 ['csr_id' => $csr->id],

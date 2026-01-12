@@ -74,6 +74,16 @@ Route::prefix('v1')->middleware('throttle:api')->group(function () {
         Route::middleware('role:Super Admin')->group(function () {
             Route::apiResource('roles', RoleController::class);
             Route::apiResource('users', UserController::class);
+
+            // Utility khusus untuk clear cache dari frontend/API
+            Route::post('system/clear-cache', function () {
+                \Illuminate\Support\Facades\Artisan::call('cache:clear');
+                \Illuminate\Support\Facades\Artisan::call('config:clear');
+                // Invalidasi internal cache service juga jika ada
+                \App\Services\CacheService::clearAll();
+
+                return response()->json(['message' => 'System cache cleared successfully']);
+            });
         });
 
         // Admin contact messages management (all authenticated users)
@@ -109,6 +119,7 @@ Route::prefix('v1')->middleware('throttle:api')->group(function () {
 
         // Upload endpoints for editor images
         Route::post('upload/image', [UploadController::class, 'uploadImage']);
+        Route::post('upload/editor', [UploadController::class, 'uploadImage']); // Alias untuk TinyMCE
         Route::post('upload/images', [UploadController::class, 'uploadMultiple']);
         Route::delete('upload/image', [UploadController::class, 'deleteImage']);
     });
