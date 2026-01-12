@@ -1,0 +1,28 @@
+meta {
+  name: Create Product
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/products
+  body: multipartForm
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  name: Test Product
+  description: Product description here
+  material: Teak Wood
+  is_featured: true
+  master_category_id: 1
+  dimension_id: 1
+}

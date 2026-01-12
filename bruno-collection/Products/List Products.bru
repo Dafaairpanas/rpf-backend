@@ -1,0 +1,23 @@
+meta {
+  name: List Products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/products
+  body: none
+  auth: none
+}
+
+params:query {
+  ~per_page: 8
+  ~q: search
+  ~featured: true
+  ~category_id: 1
+  ~limit: 5
+}
+
+headers {
+  Accept: application/json
+}

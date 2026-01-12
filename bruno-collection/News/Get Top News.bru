@@ -1,0 +1,15 @@
+meta {
+  name: Get Top News
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/news/top-news
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

@@ -1,0 +1,19 @@
+meta {
+  name: List News
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/news
+  body: none
+  auth: none
+}
+
+params:query {
+  ~per_page: 20
+}
+
+headers {
+  Accept: application/json
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get News
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v1/news/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 1
+}
+
+headers {
+  Accept: application/json
+}

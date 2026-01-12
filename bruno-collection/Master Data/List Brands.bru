@@ -1,0 +1,15 @@
+meta {
+  name: List Brands
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/brands
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Create News
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/v1/news
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "title": "Test News Article",
+    "content": "<h2>Test Content</h2><p>This is a test news article.</p>",
+    "is_top_news": false
+  }
+}

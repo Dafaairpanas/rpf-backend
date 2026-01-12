@@ -1,0 +1,19 @@
+meta {
+  name: Clear Cache
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/system/clear-cache
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
