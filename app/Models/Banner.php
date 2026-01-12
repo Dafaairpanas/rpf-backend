@@ -47,11 +47,16 @@ class Banner extends Model
             return null;
         }
 
-        // Jika sudah full URL, langsung return
+        // Already a full URL
         if (str_starts_with($this->image_path, 'http')) {
             return $this->image_path;
         }
 
-        return asset('storage/' . $this->image_path);
+        // Already has /storage/ prefix
+        if (str_starts_with($this->image_path, '/storage/')) {
+            return url($this->image_path);
+        }
+
+        return asset('storage/' . ltrim($this->image_path, '/'));
     }
 }

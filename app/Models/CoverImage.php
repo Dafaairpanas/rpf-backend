@@ -18,12 +18,20 @@ class CoverImage extends Model
 
     public function getImageUrlAttribute($value): ?string
     {
-        if (!$value)
+        if (!$value) {
             return null;
-        if (str_starts_with($value, 'http')) {
-            $path = parse_url($value, PHP_URL_PATH);
-            return url($path);
         }
-        return asset('storage/' . $value);
+
+        // Already a full URL
+        if (str_starts_with($value, 'http')) {
+            return $value;
+        }
+
+        // Already has /storage/ prefix
+        if (str_starts_with($value, '/storage/')) {
+            return url($value);
+        }
+
+        return asset('storage/' . ltrim($value, '/'));
     }
 }

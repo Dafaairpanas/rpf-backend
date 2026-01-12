@@ -23,21 +23,23 @@ class ProductImage extends Model
     /**
      * Get full URL for image
      */
-    /**
-     * Get full URL for image
-     */
     public function getImageUrlAttribute($value): ?string
     {
         if (!$value) {
             return null;
         }
 
+        // Already a full URL
         if (str_starts_with($value, 'http')) {
-            // Fix for domain changes (e.g. localhost -> localhost:8000)
-            $path = parse_url($value, PHP_URL_PATH);
-            return url($path);
+            return $value;
         }
 
-        return asset('storage/' . $value);
+        // Already has /storage/ prefix (from Storage::url())
+        if (str_starts_with($value, '/storage/')) {
+            return url($value);
+        }
+
+        // Raw path without prefix
+        return asset('storage/' . ltrim($value, '/'));
     }
 }
